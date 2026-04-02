@@ -1,24 +1,23 @@
 <template>
   <el-card
     class="card-view"
+    :class="{ compact: isCompact, tiny: isTiny }"
     :style="{ backgroundColor: randomColor() }"
     shadow="always"
   >
     <div :style="{color: config?.fontColor?.value}">
-      <div>
+      <div class="card-header-row">
         <div class="card-content-label">数据库统计</div>
         <i class="real-time">实时</i>
       </div>
-      <div class="absolute-left">
-        <div class="card-content">
+      <div class="stats-row">
+        <div class="card-content stat-item">
           <div class="card-content-value">{{ count }}</div>
           <div class="el-icon-coin">
             数据库数量
           </div>
         </div>
-      </div>
-      <div class="absolute-right">
-        <div class="card-content-time">
+        <div class="card-content-time stat-item stat-item-right">
           <div class="attachment-value">{{ space }}</div>
           <div class="el-icon-s-flag">
             占用空间
@@ -65,6 +64,23 @@ export default {
     config: {
       type: Object,
       required: false
+    },
+    width: {
+      type: [Number, String],
+      required: false,
+      default: 16
+    }
+  },
+  computed: {
+    widthUnits () {
+      const num = Number(this.width)
+      return Number.isNaN(num) ? 16 : num
+    },
+    isCompact () {
+      return this.widthUnits <= 14
+    },
+    isTiny () {
+      return this.widthUnits <= 8
     }
   },
   methods: {
@@ -101,15 +117,19 @@ export default {
 
     .card-content-value {
       margin-top: 5px;
-      font-size: 1.5em;
+      font-size: 26px;
       font-weight: bold;
+      line-height: 1.1;
+      white-space: nowrap;
     }
   }
 
   .attachment-value {
     margin-top: 5px;
-    font-size: 1.5em;
+    font-size: 26px;
     font-weight: bold;
+    line-height: 1.1;
+    white-space: nowrap;
   }
 
   .el-icon-coin {
@@ -128,19 +148,70 @@ export default {
   font-style: normal;
   padding: 0 7px 0 7px;
   border-radius: 4px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
 }
 
 .el-card {
   height: 100%;
 }
-.absolute-right{
-  position: absolute;
-  right: 30px;
+
+.card-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.absolute-left{
-  position: absolute;
+
+.stats-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.stat-item {
+  min-width: 0;
+  width: 100%;
+}
+
+.stat-item-right {
+  text-align: right;
+}
+
+.el-icon-coin,
+.el-icon-s-flag {
+  white-space: nowrap;
+}
+
+.card-view.compact .card-content .card-content-value,
+.card-view.compact .attachment-value {
+  font-size: 22px;
+}
+
+.card-view.tiny .real-time {
+  font-size: 12px;
+  padding: 0 6px;
+}
+
+.card-view.tiny .card-content .card-content-value,
+.card-view.tiny .attachment-value {
+  font-size: 18px;
+}
+
+.card-view.tiny .el-icon-coin,
+.card-view.tiny .el-icon-s-flag {
+  font-size: 11px;
+}
+
+.card-view.tiny .stats-row {
+  gap: 8px;
+}
+
+.card-view.tiny .stat-item-right {
+  text-align: left;
+}
+
+.card-view.tiny .stats-row {
+  grid-template-columns: 1fr;
+  gap: 8px;
 }
 </style>

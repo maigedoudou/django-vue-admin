@@ -52,3 +52,17 @@ ALLOWED_HOSTS = ["*"]
 # 系统配置存放位置：redis/memory(默认)
 DISPATCH_DB_TYPE = 'redis'
 
+# ================================================= #
+# ****************** AI 配置  ********************* #
+# ================================================= #
+# Docker 内 Ollama 服务地址
+AI_OLLAMA_BASE_URL = "http://dvadmin-ollama:11434"
+# 默认模型，可按本机已下载模型调整
+AI_OLLAMA_MODEL = "qwen2.5:1.5b"
+# 请求超时（秒）
+AI_OLLAMA_TIMEOUT = 60
+# 默认最大输出 token 数（越小越快）
+AI_OLLAMA_NUM_PREDICT = 160
+# 默认上下文窗口（越小越快）
+AI_OLLAMA_NUM_CTX = 1024
+

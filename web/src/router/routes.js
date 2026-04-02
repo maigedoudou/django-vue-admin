@@ -47,6 +47,15 @@ const frameIn = [{
       },
       component: _import('dashboard/workbench')
     },
+    {
+      path: 'ai-chat',
+      name: 'ai-chat',
+      meta: {
+        title: 'AI Assistant',
+        auth: true
+      },
+      component: _import('system/aiChat')
+    },
     // 刷新页面 必须保留
     {
       path: 'refresh',

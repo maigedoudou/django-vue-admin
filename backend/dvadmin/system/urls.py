@@ -2,6 +2,7 @@ from django.urls import path
 from rest_framework import routers
 
 from dvadmin.system.views.api_white_list import ApiWhiteListViewSet
+from dvadmin.system.views.ai_chat import AIChatView
 from dvadmin.system.views.area import AreaViewSet
 from dvadmin.system.views.clause import PrivacyView, TermsServiceView
 from dvadmin.system.views.datav import DataVViewSet
@@ -33,6 +34,7 @@ system_url.register(r'message_center', MessageCenterViewSet)
 system_url.register(r'datav', DataVViewSet)
 
 urlpatterns = [
+    path('ai/chat/', AIChatView.as_view()),
     path('system_config/save_content/', SystemConfigViewSet.as_view({'put': 'save_content'})),
     path('system_config/get_association_table/', SystemConfigViewSet.as_view({'get': 'get_association_table'})),
     path('system_config/get_table_data/<int:pk>/', SystemConfigViewSet.as_view({'get': 'get_table_data'})),

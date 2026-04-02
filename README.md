@@ -1,6 +1,61 @@
-# This project has been archived, please move to a new version dvadmin3: https://github.com/huge-dream/django-vue3-admin
-# This project has been archived, please move to a new version dvadmin3: https://github.com/huge-dream/django-vue3-admin
-# This project has been archived, please move to a new version dvadmin3: https://github.com/huge-dream/django-vue3-admin
+# Django-Vue-Admin (Enhanced Version)
+
+> This project is forked and enhanced from the open-source [django-vue-admin](https://github.com/liqianglog/django-vue-admin) by liqianglog.
+
+## Enhancements & Changes
+
+- Fixed Docker Compose deployment compatibility for Apple Silicon (ARM64)
+- Fixed npm registry (replaced deprecated taobao registry with official npmjs.org)
+- Added `conf/env.py` environment configuration for local and Docker development
+- Containerized full-stack deployment using Docker Compose (Django + Vue + Nginx)
+- Added containerized AI chat endpoint backed by Ollama: POST /api/system/ai/chat/
+
+## Tech Stack
+
+- **Backend**: Python 3.8+ / Django 3.2 / Django REST Framework
+- **Frontend**: Vue 2 / Element UI / D2Admin
+- **Deployment**: Docker / Docker Compose / Nginx
+- **Database**: SQLite3 (dev) / MySQL (prod)
+
+## Quick Start (Docker)
+
+```bash
+# Start all services
+docker-compose up -d
+
+# Start local Ollama model service in Docker
+docker exec -it dvadmin-ollama ollama pull qwen2.5:1.5b
+
+# Initialize database (first time only)
+docker exec -it dvadmin-django bash
+python manage.py migrate
+python manage.py init_area
+python manage.py init
+exit
+```
+
+Visit http://127.0.0.1:8080 — account: `superadmin` / password: `admin123456`
+
+## Docker AI (Free) via Ollama
+
+1. Start services with Docker Compose.
+2. Pull a model inside the `dvadmin-ollama` container, for example: `qwen2.5:3b`.
+3. Restart backend container if needed.
+4. Call POST /api/system/ai/chat/ with JSON body.
+
+Request body fields:
+
+- message: required string
+- model: optional string
+- temperature: optional number in range [0, 1]
+
+Response data fields:
+
+- reply: model response text
+- used_model: actual model name used for this call
+- elapsed_ms: end-to-end request time in milliseconds
+
+---
 
 # Django-Vue-Admin
 

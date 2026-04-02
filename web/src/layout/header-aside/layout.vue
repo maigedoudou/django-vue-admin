@@ -42,6 +42,7 @@
           <d2-header-fullscreen />
           <d2-header-theme />
           <d2-header-message />
+          <d2-header-ai-assistant />
           <d2-header-size />
           <d2-header-locales />
           <d2-header-color />
@@ -113,6 +114,7 @@ import d2HeaderUser from './components/header-user'
 import d2HeaderLog from './components/header-log'
 import d2HeaderColor from './components/header-color'
 import d2HeaderMessage from './components/header-message'
+import d2HeaderAiAssistant from './components/header-ai-assistant'
 import { mapState, mapGetters, mapActions } from 'vuex'
 import mixinSearch from './mixins/search'
 export default {
@@ -130,7 +132,8 @@ export default {
     d2HeaderUser,
     d2HeaderLog,
     d2HeaderColor,
-    d2HeaderMessage
+    d2HeaderMessage,
+    d2HeaderAiAssistant
   },
   provide () {
     return {
