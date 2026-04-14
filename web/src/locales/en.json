@@ -1,0 +1,61 @@
+{
+  "_element": "en",
+  "_name": "English",
+  "common": {
+    "logout": "Logout",
+    "profile": "Profile",
+    "notLoggedIn": "Not logged in",
+    "hello": "Hello",
+    "currentTenant": "Current Tenant",
+    "switchPlan": "Switch Plan",
+    "tenantInfo": "Tenant Info",
+    "avatar": "Avatar"
+  },
+  "login": {
+    "title": "Sign In",
+    "username": "Username",
+    "password": "Password",
+    "captcha": "Captcha",
+    "submit": "Sign In",
+    "freeTrial": "Free Trial",
+    "help": "Help",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "dashboard": {
+    "usersTotal": "Total Users",
+    "loginTotal": "Total Logins",
+    "welcome": "Welcome",
+    "welcomeTitle": "Welcome to DVAdmin",
+    "welcomeTip1": "This is the project dashboard. Click the \"Customize\" button in the top right to add, remove, or move widgets.",
+    "welcomeTip2": "Built with Python and Vue, a low-code open-source platform.",
+    "realtime": "Live",
+    "attachmentTotal": "Attachments",
+    "databaseTotal": "Database",
+    "totalSize": "Total Size",
+    "fileCount": "File Count",
+    "loginRegion": "Login Region",
+    "registeredUser": "Registered Users",
+    "activeUsers": "Active Users",
+    "loginTrend": "Login Trend"
+  },
+  "ai": {
+    "title": "AI Assistant",
+    "subtitle": "powered by",
+    "placeholder": "Ask a question... (Enter to send, Shift+Enter for new line)",
+    "send": "Send",
+    "clear": "Clear",
+    "settings": "Settings",
+    "close": "Close",
+    "modelLabel": "Model name (default: qwen2.5:1.5b)",
+    "replyLang": "Reply Language:",
+    "langAuto": "Auto",
+    "welcome": "Hello! I'm your AI Assistant",
+    "welcomeDesc": "I can query real system data. Try asking:",
+    "q1": "How many users are in the system?",
+    "q2": "What is the login activity in the last 7 days?",
+    "q3": "What departments exist?",
+    "dataQueried": "Real data queried:",
+    "errorHint": "Request failed. Please check if Ollama service is running."
+  }
+}

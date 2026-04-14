@@ -1,9 +1,10 @@
-FROM registry.cn-zhangjiakou.aliyuncs.com/dvadmin-pro/node12-base-web:latest
+FROM node:14-alpine
+RUN apk add --no-cache python3 make g++
 WORKDIR /web/
 COPY web/. .
-RUN npm install --registry=https://registry.npmjs.org
+RUN npm install --registry=https://registry.npmmirror.com
 RUN npm run build
 
-FROM registry.cn-zhangjiakou.aliyuncs.com/dvadmin-pro/nginx:alpine
+FROM nginx:alpine
 COPY ./docker_env/nginx/my.conf /etc/nginx/conf.d/my.conf
 COPY --from=0 /web/dist /usr/share/nginx/html

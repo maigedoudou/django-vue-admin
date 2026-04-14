@@ -1,13 +1,70 @@
 {
-	"_element": "zh-CN",
-	"_name": "简体中文",
-	"page": {
-		"demo": {
-			"playground": {
-				"locales": {
-					"text": "D2Admin 是一个完全 开源免费 的企业中后台产品前端集成方案，使用最新的前端技术栈，已经做好大部分项目前期准备工作，并且带有大量示例代码，助力管理系统敏捷开发。"
-				}
-			}
-		}
-	}
+  "_element": "zh-CN",
+  "_name": "简体中文",
+  "common": {
+    "logout": "注销",
+    "profile": "个人信息",
+    "notLoggedIn": "未登录",
+    "hello": "你好",
+    "currentTenant": "当前租户",
+    "switchPlan": "切换套餐",
+    "tenantInfo": "租户信息",
+    "avatar": "头像"
+  },
+  "login": {
+    "title": "账号密码登录",
+    "username": "用户名",
+    "password": "密码",
+    "captcha": "验证码",
+    "submit": "登录",
+    "freeTrial": "免费试用",
+    "help": "帮助",
+    "privacy": "隐私",
+    "terms": "条款"
+  },
+  "dashboard": {
+    "usersTotal": "用户总数",
+    "loginTotal": "登录次数",
+    "welcome": "欢迎使用",
+    "welcomeTitle": "欢迎体验 Dvadmin",
+    "welcomeTip1": "这里是项目控制台，你可以点击右上方的「自定义」按钮来添加移除或者移动部件。",
+    "welcomeTip2": "热爱Python和Vue，打造一个低代码开源平台，并且持续着。",
+    "realtime": "实时",
+    "attachmentTotal": "附件统计",
+    "databaseTotal": "数据库统计",
+    "totalSize": "总大小",
+    "fileCount": "文件数",
+    "loginRegion": "登录地区",
+    "registeredUser": "注册用户",
+    "activeUsers": "活跃用户",
+    "loginTrend": "登录趋势"
+  },
+  "ai": {
+    "title": "AI 智能助手",
+    "subtitle": "基于",
+    "placeholder": "输入问题，Enter 发送，Shift+Enter 换行",
+    "send": "发送",
+    "clear": "清空对话",
+    "settings": "设置",
+    "close": "关闭",
+    "modelLabel": "模型名称（默认 qwen2.5:1.5b）",
+    "replyLang": "回复语言：",
+    "langAuto": "自动",
+    "welcome": "你好！我是 AI 助手",
+    "welcomeDesc": "我可以查询系统的真实数据，试着问我：",
+    "q1": "系统里有多少用户？",
+    "q2": "最近7天登录情况怎样？",
+    "q3": "有哪些部门？",
+    "dataQueried": "已查询真实数据：",
+    "errorHint": "请求失败，请检查 Ollama 服务是否运行"
+  },
+  "page": {
+    "demo": {
+      "playground": {
+        "locales": {
+          "text": "D2Admin 是一个完全 开源免费 的企业中后台产品前端集成方案，使用最新的前端技术栈，已经做好大部分项目前期准备工作，并且带有大量示例代码，助力管理系统敏捷开发。"
+        }
+      }
+    }
+  }
 }

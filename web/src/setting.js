@@ -19,7 +19,7 @@ export default {
         name: 'index',
         fullPath: '/index',
         meta: {
-          title: '控制台',
+          title: 'Dashboard',
           auth: false
         }
       }

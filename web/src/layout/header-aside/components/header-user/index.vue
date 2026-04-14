@@ -7,31 +7,27 @@
       v-if="isTenants"
       >
       <span>
-        当前租户：{{info.tenant_name}}
+        {{ $t('common.currentTenant') }}：{{info.tenant_name}}
       </span>
       <span style="color: #E6A23C;" v-if="info.tenant_id && info.tenant_id !== 100000" @click="clientInfo">
-        切换套餐
+        {{ $t('common.switchPlan') }}
       </span>
-      <span class="btn-text">{{
-      info.name ? `你好 ${info.name}` : "未登录"
-    }}</span>
+      <span class="btn-text">{{ info.name ? $t('common.hello') + ' ' + info.name : $t('common.notLoggedIn') }}</span>
     </el-link>
-    <span class="btn-text" v-else>{{
-      info.name ? `你好 ${info.name}` : "未登录"
-    }}</span>
+    <span class="btn-text" v-else>{{ info.name ? $t('common.hello') + ' ' + info.name : $t('common.notLoggedIn') }}</span>
     <el-dropdown-menu slot="dropdown">
       <el-dropdown-item @click.native="userInfo">
-        <d2-icon name="cog" class="d2-mr-5" />个人信息
+        <d2-icon name="cog" class="d2-mr-5" />{{ $t('common.profile') }}
       </el-dropdown-item>
       <el-dropdown-item @click.native="clientInfo" v-if="info.tenant_id && info.tenant_id !== 100000">
-        <d2-icon name="cog" class="d2-mr-5" />租户信息
+        <d2-icon name="cog" class="d2-mr-5" />{{ $t('common.tenantInfo') }}
       </el-dropdown-item>
       <el-dropdown-item @click.native="logOff" divided>
         <d2-icon name="power-off" class="d2-mr-5" />
-        注销
+        {{ $t('common.logout') }}
       </el-dropdown-item>
     </el-dropdown-menu>
-    <el-image v-if="info.avatar" :src="info.avatar" :preview-src-list="[info.avatar]" style="width: 20px;height: 20px;border-radius: 20%;top: 5px;" alt="头像"></el-image>
+    <el-image v-if="info.avatar" :src="info.avatar" :preview-src-list="[info.avatar]" style="width: 20px;height: 20px;border-radius: 20%;top: 5px;" :alt="$t('common.avatar')"></el-image>
   </el-dropdown>
 </template>
 

@@ -14,13 +14,13 @@
           <div class="tips-item-icon">
             <i class="el-icon-menu"></i>
           </div>
-          <div class="tips-item-message">这里是项目控制台，你可以点击右上方的“自定义”按钮来添加移除或者移动部件。</div>
+          <div class="tips-item-message">这里是项目控制台，你可以点击右上方的「自定义」按鈕来添加移除或者移动部件。</div>
         </div>
         <div class="tips-item">
           <div class="tips-item-icon">
             <i class="el-icon-star-on"></i>
           </div>
-          <div class="tips-item-message">热爱Python和Vue,打造一个低代码开源平台，并且持续着。</div>
+          <div class="tips-item-message">热爱Python和Vue，打造一个低代码开源平台，并且持续着。</div>
         </div>
         <div class="tips-item">
           <div class="tips-item-icon">
