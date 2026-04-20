@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
+import ElementLocale from 'element-ui/lib/locale'
 import util from '@/libs/util'
 
 Vue.use(VueI18n)
@@ -11,10 +12,11 @@ function loadLocaleMessages () {
     const matched = key.match(/([A-Za-z0-9-_]+)\./i)
     if (matched && matched.length > 1) {
       const locale = matched[1]
+      // 只加载我们自己的 JSON，element-ui 通过 ElementLocale.i18n() 桥接
       const localeElementUI = require(`element-ui/lib/locale/lang/${locales(key)._element}`)
       messages[locale] = {
         ...locales(key),
-        ...localeElementUI ? localeElementUI.default : {}
+        el: localeElementUI ? localeElementUI.default.el : {}
       }
     }
   }
@@ -33,5 +35,8 @@ const i18n = new VueI18n({
   fallbackLocale: process.env.VUE_APP_I18N_FALLBACK_LOCALE,
   messages
 })
+
+// 让 element-ui 通过 vue-i18n 获取翻译，不再 spread 到顶层
+ElementLocale.i18n((key, value) => i18n.t(key, value))
 
 export default i18n

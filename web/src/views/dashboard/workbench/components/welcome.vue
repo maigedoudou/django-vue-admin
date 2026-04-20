@@ -1,36 +1,36 @@
 <template>
   <el-card
     shadow="hover"
-    :header="config?.showHeader?.value ? '欢迎使用' : ''"
+    :header="config?.showHeader?.value ? $t('dashboard.welcome') : ''"
     class="card-view"
     :style="{background: randomColor(), color: config?.fontColor?.value}">
     <div class="welcome">
       <div class="logo">
         <img src="/image/django-vue-admin.png">
-        <h2>欢迎体验 Dvadmin</h2>
+        <h2>{{ $t('dashboard.welcomeTitle') }}</h2>
       </div>
       <div class="tips">
         <div class="tips-item">
           <div class="tips-item-icon">
             <i class="el-icon-menu"></i>
           </div>
-          <div class="tips-item-message">这里是项目控制台，你可以点击右上方的「自定义」按鈕来添加移除或者移动部件。</div>
+          <div class="tips-item-message">{{ $t('dashboard.welcomeTip1') }}</div>
         </div>
         <div class="tips-item">
           <div class="tips-item-icon">
             <i class="el-icon-star-on"></i>
           </div>
-          <div class="tips-item-message">热爱Python和Vue，打造一个低代码开源平台，并且持续着。</div>
+          <div class="tips-item-message">{{ $t('dashboard.welcomeTip2') }}</div>
         </div>
         <div class="tips-item">
           <div class="tips-item-icon">
             <i class="el-icon-milk-tea"></i>
           </div>
-          <div class="tips-item-message">项目目的：让前端和后端工作更快乐</div>
+          <div class="tips-item-message">{{ $t('dashboard.welcomeTip3') }}</div>
         </div>
       </div>
       <div class="actions">
-        <el-button type="primary" icon="el-icon-check" size="large" @click="godoc">文档</el-button>
+        <el-button type="primary" icon="el-icon-check" size="large" @click="godoc">{{ $t('dashboard.docs') }}</el-button>
       </div>
     </div>
   </el-card>

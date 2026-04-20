@@ -4,7 +4,7 @@
       <el-row type="flex" justify="space-around" style="padding:10px">
         <el-col :span="12">
           <div class="card-content">
-            <div class="card-content-label">用户总数</div>
+            <div class="card-content-label">{{ $t('dashboard.usersTotal') }}</div>
             <div class="card-content-value">{{ usersTotal }}</div>
           </div>
         </el-col>

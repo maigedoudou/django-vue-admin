@@ -78,8 +78,10 @@ import { d2CrudPlus } from 'd2-crud-plus'
 import log from 'd2p-extends/src/utils/util.log'
 import util from '@/libs/util'
 // 文件上传组件,依赖D2pUploader
+import VueCoreVideoPlayer from 'vue-core-video-player'
 export default {
   name: 'd2p-file-uploader',
+  components: { VueCoreVideoPlayer },
   mixins: [d2CrudPlus.inputBase],
   props: {
     // 选择文件按钮的大小

@@ -7,20 +7,20 @@
   >
     <div :style="{color: config?.fontColor?.value}">
       <div class="card-header-row">
-        <div class="card-content-label">附件统计</div>
-        <i class="real-time">实时</i>
+        <div class="card-content-label">{{ $t('dashboard.attachmentTotal') }}</div>
+        <i class="real-time">{{ $t('dashboard.realtime') }}</i>
       </div>
       <div class="stats-row">
         <div class="card-content stat-item">
           <div class="card-content-value">{{ count }}</div>
           <div class="el-icon-document-copy">
-            附件数量
+            {{ $t('dashboard.attachmentCount') }}
           </div>
         </div>
         <div class="card-content-time stat-item stat-item-right">
           <div class="attachment-value">{{ occupy_space }}</div>
           <div class="el-icon-s-flag">
-            附件大小
+            {{ $t('dashboard.attachmentSize') }}
           </div>
         </div>
       </div>
