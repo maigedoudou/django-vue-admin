@@ -1,13 +1,13 @@
 <template>
   <el-card
     shadow="hover"
-    :header="config?.showHeader?.value ? '版本信息' : ''"
+    :header="config?.showHeader?.value ? $t('dashboard.version') : ''"
     class="card-view"
     :style="{backgroundColor:randomColor(),color: config?.fontColor?.value}"
   >
     <div style="text-align: center;">
       <h2 style="margin-top: 5px;">{{ title }}</h2>
-      <p style="margin-top: 5px;">最新版本 {{ ver }}</p>
+      <p style="margin-top: 5px;">{{ $t('dashboard.latestVersion') }} {{ ver }}</p>
     </div>
   </el-card>
 </template>

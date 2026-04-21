@@ -13,7 +13,7 @@
           <div class="enroll-time">
             <div class="enroll-number"><h3>{{ data.today_users || 0 }}</h3>
             </div>
-            <div class="enroll-text">今日注册
+            <div class="enroll-text">{{ $t('dashboard.todayReg') }}
             </div>
           </div>
         </el-col>
@@ -28,7 +28,7 @@
           <div class="enroll-time">
             <div class="enroll-number"><h3>{{ data.today_logins || 0 }}</h3>
             </div>
-            <div class="enroll-text">今日登录
+            <div class="enroll-text">{{ $t('dashboard.todayLogin') }}
             </div>
           </div>
         </el-col>
@@ -43,7 +43,7 @@
           <div class="enroll-time">
             <div class="enroll-number"><h3>{{ data.three_days || 0 }}</h3>
             </div>
-            <div class="enroll-text">三日新增
+            <div class="enroll-text">{{ $t('dashboard.threeDayNew') }}
             </div>
           </div>
         </el-col>
@@ -58,7 +58,7 @@
           <div class="enroll-time">
             <div class="enroll-number"><h3>{{ data.seven_days || 0 }}</h3>
             </div>
-            <div class="enroll-text">七日活跃
+            <div class="enroll-text">{{ $t('dashboard.sevenDayActive') }}
             </div>
           </div>
         </el-col>
@@ -73,7 +73,7 @@
           <div class="enroll-time">
             <div class="enroll-number"><h3>{{ data.seven_days_active || 0 }}</h3>
             </div>
-            <div class="enroll-text">七日新增
+            <div class="enroll-text">{{ $t('dashboard.sevenDayNew') }}
             </div>
           </div>
         </el-col>
@@ -88,7 +88,7 @@
           <div class="enroll-time">
             <div class="enroll-number"><h3>{{ data.monthly_active || 0 }}</h3>
             </div>
-            <div class="enroll-text">月活跃
+            <div class="enroll-text">{{ $t('dashboard.monthlyActive') }}
             </div>
           </div>
         </el-col>

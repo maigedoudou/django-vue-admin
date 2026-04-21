@@ -1,6 +1,6 @@
 <template>
 <div>
-  <el-divider content-position="left">消息中心</el-divider>
+  <el-divider content-position="left">{{ $t('header.msgCenter') }}</el-divider>
   <div v-if="msgObj">
      <h3>{{msgObj.title}}</h3>
     <div class="content-style" v-html="msgObj.content"></div>
@@ -10,7 +10,7 @@
   </div>
   <el-divider></el-divider>
   <div style="text-align: center">
-    <el-button type="text" @click="toPage">前往通知中心</el-button>
+    <el-button type="text" @click="toPage">{{ $t('header.goToNotification') }}</el-button>
   </div>
 </div>
 </template>

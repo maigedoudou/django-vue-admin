@@ -2,7 +2,7 @@
   <div>
     <el-tooltip
       effect="dark"
-      content="主题"
+      :content="$t('header.theme')"
       placement="bottom">
       <el-button
         class="d2-ml-0 d2-mr btn-text can-hover"
@@ -14,7 +14,7 @@
       </el-button>
     </el-tooltip>
     <el-dialog
-      title="主题"
+      :title="$t('header.theme')"
       width="600px"
       :visible.sync="dialogVisible"
       :append-to-body="true">

@@ -14,7 +14,7 @@
         class="menuclass"
       >
         <div class="titlea">
-          添加部件 <i style="color: #409eff" class="el-icon-plus"></i>
+          {{ $t('dashboard.addWidgets') }} <i style="color: #409eff" class="el-icon-plus"></i>
           <span class="operateCallback">
             <slot name="operateButton"/>
           </span>

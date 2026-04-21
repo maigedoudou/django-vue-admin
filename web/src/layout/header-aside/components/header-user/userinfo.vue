@@ -1,7 +1,7 @@
 <template>
   <d2-container class="page">
     <el-tabs v-model="activeName" @tab-click="handleClick">
-      <el-tab-pane label="用户设置" name="userInfo">
+      <el-tab-pane :label="$t('userinfo.settings')" name="userInfo">
         <el-row :gutter="20">
           <el-col :span="10" :offset="6">
             <el-form
@@ -13,36 +13,36 @@
               :label-position="position"
               center
             >
-              <el-form-item prop="avatar" label="头像">
+              <el-form-item prop="avatar" :label="$t('userinfo.avatar')">
                 <d2p-cropper-uploader :value="userInfo.avatar || '/image/avatar.png'" @input="handleAvatarSuccess"/>
               </el-form-item>
-              <el-form-item prop="username" label="账号">
+              <el-form-item prop="username" :label="$t('userinfo.account')">
                 <el-input v-model="userInfo.username" disabled></el-input>
               </el-form-item>
-              <el-form-item prop="name" required label="昵称">
+              <el-form-item prop="name" required :label="$t('userinfo.nickname')">
                 <el-input v-model="userInfo.name" clearable></el-input>
               </el-form-item>
-              <el-form-item label="电话号码" required prop="mobile">
+              <el-form-item :label="$t('userinfo.phone')" required prop="mobile">
                 <el-input v-model="userInfo.mobile" clearable disabled></el-input>
               </el-form-item>
-              <el-form-item label="邮箱" prop="email">
+              <el-form-item :label="$t('userinfo.email')" prop="email">
                 <el-input v-model="userInfo.email" clearable></el-input>
               </el-form-item>
-              <el-form-item label="性別" prop="gender">
+              <el-form-item :label="$t('userinfo.gender')" prop="gender">
                 <el-radio-group v-model="userInfo.gender">
-                  <el-radio :label="1">男</el-radio>
-                  <el-radio :label="0">女</el-radio>
-                  <el-radio :label="-1">未知</el-radio>
+                  <el-radio :label="1">{{ $t('userinfo.male') }}</el-radio>
+                  <el-radio :label="0">{{ $t('userinfo.female') }}</el-radio>
+                  <el-radio :label="-1">{{ $t('userinfo.unknown') }}</el-radio>
                 </el-radio-group>
               </el-form-item>
-              <el-form-item label="用户名" prop="dept">
+              <el-form-item :label="$t('userinfo.username')" prop="dept">
                 <el-input :value="userInfo.username" clearable disabled></el-input>
               </el-form-item>
-              <el-form-item label="所属部门" prop="dept">
+              <el-form-item :label="$t('userinfo.department')" prop="dept">
                 <el-input :value="userInfo.dept_info && userInfo.dept_info.dept_name" clearable disabled></el-input>
               </el-form-item>
-              <el-form-item label="当前角色" prop="role">
-                <el-select :value="userInfo.role" multiple placeholder="请选择" disabled size="mini" style="width: 100%;">
+              <el-form-item :label="$t('userinfo.currentRole')" prop="role">
+                <el-select :value="userInfo.role" multiple :placeholder="$t('userinfo.selectPlease')" disabled size="mini" style="width: 100%;">
                   <el-option
                     v-for="item in userInfo.role_info"
                     :key="item.id"
@@ -54,18 +54,18 @@
               <el-form-item>
                 <el-button @click="updateInfo" type="primary">
                   <i class="fa fa-check"></i>
-                  更新
+                  {{ $t('userinfo.update') }}
                 </el-button>
                 <el-button @click="resetForm('info')" type="info">
                   <i class="fa fa-reply-all"></i>
-                  重置
+                  {{ $t('userinfo.reset') }}
                 </el-button>
               </el-form-item>
             </el-form>
           </el-col>
         </el-row>
       </el-tab-pane>
-      <el-tab-pane label="密码设置" name="passwrod">
+      <el-tab-pane :label="$t('userinfo.passwordSettings')" name="passwrod">
         <el-row :gutter="20">
           <el-col :span="10" :offset="6">
             <el-form
@@ -77,35 +77,35 @@
               :rules="passwordRules"
               center
             >
-              <el-form-item label="原密码" required prop="oldPassword">
+              <el-form-item :label="$t('userinfo.oldPassword')" required prop="oldPassword">
                 <el-input
                   v-model="userPasswordInfo.oldPassword"
-                  placeholder="请输入原始密码"
+                  :placeholder="$t('userinfo.oldPasswordPh')"
                   clearable
                 ></el-input>
               </el-form-item>
-              <el-form-item required prop="newPassword" label="新密码">
+              <el-form-item required prop="newPassword" :label="$t('userinfo.newPassword')">
                 <el-input
                   type="password"
                   v-model="userPasswordInfo.newPassword"
-                  placeholder="请输入新密码"
+                  :placeholder="$t('userinfo.newPasswordPh')"
                   clearable
                 ></el-input>
               </el-form-item>
-              <el-form-item required prop="newPassword2" label="确认密码">
+              <el-form-item required prop="newPassword2" :label="$t('userinfo.confirmPassword')">
                 <el-input
                   type="password"
                   v-model="userPasswordInfo.newPassword2"
-                  placeholder="请再次输入新密码"
+                  :placeholder="$t('userinfo.confirmPasswordPh')"
                   clearable
                 ></el-input>
               </el-form-item>
               <el-form-item>
                 <el-button type="primary" @click="settingPassword">
-                  <i class="fa fa-check"></i>提交
+                  <i class="fa fa-check"></i>{{ $t('userinfo.submit') }}
                 </el-button>
                 <el-button @click="resetForm('passwordForm')" type="info">
-                  <i class="fa fa-reply-all"></i>重置
+                  <i class="fa fa-reply-all"></i>{{ $t('userinfo.reset') }}
                 </el-button>
               </el-form-item>
             </el-form>
@@ -125,11 +125,11 @@ export default {
     var validatePass = (rule, value, callback) => {
       const pwdRegex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z]).{8,30}')
       if (value === '') {
-        callback(new Error('请输入密码'))
+        callback(new Error(this.$t('userinfo.enterPassword')))
       } else if (value === this.userPasswordInfo.oldPassword) {
-        callback(new Error('原密码与新密码一致'))
+        callback(new Error(this.$t('userinfo.sameAsOld')))
       } else if (!pwdRegex.test(value)) {
-        callback(new Error('您的密码复杂度太低(密码中必须包含字母、数字)'))
+        callback(new Error(this.$t('userinfo.tooSimple')))
       } else {
         if (this.userPasswordInfo.newPassword2 !== '') {
           this.$refs.userPasswordForm.validateField('newPassword2')
@@ -139,9 +139,9 @@ export default {
     }
     var validatePass2 = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请再次输入密码'))
+        callback(new Error(this.$t('userinfo.reenterPassword')))
       } else if (value !== this.userPasswordInfo.newPassword) {
-        callback(new Error('两次输入密码不一致!'))
+        callback(new Error(this.$t('userinfo.passwordMismatch')))
       } else {
         callback()
       }
@@ -162,8 +162,8 @@ export default {
         email: ''
       },
       userInforules: {
-        name: [{ required: true, message: '请输入昵称', trigger: 'blur' }],
-        mobile: [{ pattern: /^1[3-9]\d{9}$/, message: '请输入正确手机号' }]
+        name: [{ required: true, message: this.$t('userinfo.enterNickname'), trigger: 'blur' }],
+        mobile: [{ pattern: /^1[3-9]\d{9}$/, message: this.$t('userinfo.invalidPhone') }]
       },
       userPasswordInfo: {
         oldPassword: '',
@@ -174,7 +174,7 @@ export default {
         oldPassword: [
           {
             required: true,
-            message: '请输入原密码',
+            message: this.$t('userinfo.enterOldPassword'),
             trigger: 'blur'
           }
         ],
@@ -216,13 +216,13 @@ export default {
             method: 'put',
             data: userInfo
           }).then((res) => {
-            _self.$message.success('修改成功')
+            _self.$message.success(_self.$t('userinfo.updateSuccess'))
             _self.getCurrentUserInfo()
           })
         } else {
           // 校验失败
           // 登录表单校验失败
-          this.$message.error('表单校验失败，请检查')
+          this.$message.error(this.$t('userinfo.formError'))
         }
       })
     },
@@ -265,14 +265,14 @@ export default {
               data: params
             }).then((res) => {
               _self.activeName = 'userInfo'
-              _self.$message.success('修改成功')
+              _self.$message.success(_self.$t('userinfo.updateSuccess'))
               _self.logout({})
             })
           }
         } else {
           // 校验失败
           // 登录表单校验失败
-          this.$message.error('表单校验失败，请检查')
+          this.$message.error(this.$t('userinfo.formError'))
         }
       })
     },

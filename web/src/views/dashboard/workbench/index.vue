@@ -2,33 +2,33 @@
   <d2-container>
     <suspended-library ref="suspendedLibrary">
       <div class="set-btn-class" slot="callbackButton">
-        <el-button v-if="customizing" type="primary" icon="el-icon-check" round @click="save">完成&nbsp;&nbsp;
+        <el-button v-if="customizing" type="primary" icon="el-icon-check" round @click="save">{{ $t('dashboard.done') }}&nbsp;&nbsp;
         </el-button>
-        <el-button v-else type="primary" icon="el-icon-edit" round @click="custom">自定义</el-button>
-        <el-button v-if="minimize" type="warning" icon="el-icon-plus" round @click="clickMinimize">展开&nbsp;&nbsp;
+        <el-button v-else type="primary" icon="el-icon-edit" round @click="custom">{{ $t('dashboard.customize') }}</el-button>
+        <el-button v-if="minimize" type="warning" icon="el-icon-plus" round @click="clickMinimize">{{ $t('dashboard.expand') }}&nbsp;&nbsp;
         </el-button>
       </div>
       <div slot="operateButton">
-        <el-tooltip class="item" effect="dark" content="清空画布" placement="top">
+        <el-tooltip class="item" effect="dark" :content="$t('dashboard.clearCanvas')" placement="top">
           <el-button v-if="customizing" type="danger" icon="el-icon-delete" circle size="mini"
                      @click="clickEmpty"></el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="最小化" placement="top">
+        <el-tooltip class="item" effect="dark" :content="$t('dashboard.minimize')" placement="top">
           <el-button v-if="customizing" type="success" icon="el-icon-minus" circle size="mini"
                      @click="clickMinimize"></el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="恢复默认" placement="top">
+        <el-tooltip class="item" effect="dark" :content="$t('dashboard.resetDefault')" placement="top">
           <el-button v-if="customizing" type="primary" icon="el-icon-refresh-right" circle size="mini"
                      @click="backDefault()"></el-button>
         </el-tooltip>
-        <el-tooltip class="item" effect="dark" content="关闭" placement="top">
+        <el-tooltip class="item" effect="dark" :content="$t('dashboard.close')" placement="top">
           <el-button v-if="customizing" type="danger" icon="el-icon-close" circle size="mini"
                      @click="close()"></el-button>
         </el-tooltip>
       </div>
       <div slot="widgetsList">
         <div v-if="myCompsList.length<=0" class="widgets-list-nodata">
-          <el-empty description="没有部件啦" :image-size="60"></el-empty>
+          <el-empty :description="$t('dashboard.noWidgets')" :image-size="60"></el-empty>
         </div>
         <div class="widgetsListBox">
           <span v-for="item in myCompsList" :key="item.title">
@@ -48,7 +48,7 @@
     <div class="widgets" ref="widgets">
       <div :class="['widgets-wrapper',customizing?'widgets-wrapper-bg':'']">
         <div v-if="nowCompsList.length<=0" class="no-widgets">
-          <el-empty image="img/no-widgets.svg" description="没有部件啦" :image-size="280"></el-empty>
+          <el-empty image="img/no-widgets.svg" :description="$t('dashboard.noWidgets')" :image-size="280"></el-empty>
         </div>
         <grid-layout
           ref="gridlayout"
@@ -81,7 +81,7 @@
               <label>
                 <i :class="allComps[item.element].icon"></i>
                 {{ allComps[item.element].title }}</label>
-              <div style="color:#000;">宽{{ item.w }} x 高{{ item.h }}</div>
+              <div style="color:#000;">W{{ item.w }} x H{{ item.h }}</div>
             </div>
             <component :class="customizing?'set-component-bg':''" :is="allComps[item.element]"
                        :config="item.config || {}" :width="item.w" :height="item.h" :pxData="pxData[item.i]"></component>

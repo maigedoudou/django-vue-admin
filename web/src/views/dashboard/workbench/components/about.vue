@@ -1,7 +1,6 @@
 <template>
-  <el-card shadow="hover" :header="config?.showHeader?.value ? '关于项目' : ''" class="card-view" :style="{backgroundColor:randomColor(),color: config?.fontColor?.value}">
-    <p :style="{color: config?.fontColor?.value}">基于RBAC模型的权限控制的一整套基础开发平台，前后端分离，后端采用 django+django-rest-framework，前端采用
-      vue+ElementUI+d2-crud-plus。如果喜欢就点个星星支持一下。
+  <el-card shadow="hover" :header="config?.showHeader?.value ? $t('dashboard.about') : ''" class="card-view" :style="{backgroundColor:randomColor(),color: config?.fontColor?.value}">
+    <p :style="{color: config?.fontColor?.value}">{{ $t('dashboard.aboutDesc') }}
       <a href='https://gitee.com/liqianglog/django-vue-admin'>
         <img src='https://gitee.com/liqianglog/django-vue-admin/badge/star.svg?theme=dark' alt='star'
              style="position: absolute;right: 20px;bottom: 10px;"/>

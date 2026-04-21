@@ -3,7 +3,7 @@
 
     <el-tooltip
       effect="dark"
-      content="通知"
+      :content="$t('header.notification')"
       placement="bottom">
       <el-popover
         placement="bottom"

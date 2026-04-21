@@ -18,10 +18,10 @@ export default {
   data () {
     return {
       options: [
-        { label: '默认', value: 'default' },
-        { label: '中', value: 'medium' },
-        { label: '小', value: 'small' },
-        { label: '最小', value: 'mini' }
+        { label: this.$t('header.sizeDefault'), value: 'default' },
+        { label: this.$t('header.sizeMedium'), value: 'medium' },
+        { label: this.$t('header.sizeSmall'), value: 'small' },
+        { label: this.$t('header.sizeMini'), value: 'mini' }
       ]
     }
   },
@@ -40,9 +40,9 @@ export default {
     handleChange (value) {
       this.sizeSet(value)
       this.$notify({
-        title: '提示',
+        title: this.$t('header.hint'),
         dangerouslyUseHTMLString: true,
-        message: '已更新页面内 <b>组件</b> 的 <b>默认尺寸</b><br/>例如按钮大小，<b>非字号</b>',
+        message: this.$t('header.sizeChanged'),
         type: 'success'
       })
     },
