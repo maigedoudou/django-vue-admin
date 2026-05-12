@@ -21,12 +21,14 @@ export default {
     '$i18n.locale': 'i18nHandle'
   },
   created () {
-    this.i18nHandle(this.$i18n.locale)
+    this.$i18n.locale = 'en'
+    this.i18nHandle('en')
   },
   methods: {
     i18nHandle (val, oldVal) {
-      util.cookies.set('lang', val)
-      document.querySelector('html').setAttribute('lang', val)
+      this.$i18n.locale = 'en'
+      util.cookies.set('lang', 'en')
+      document.querySelector('html').setAttribute('lang', 'en')
     }
   }
 }

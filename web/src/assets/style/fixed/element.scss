@@ -29,3 +29,24 @@
 .el-table colgroup.gutter {
   display: table-cell !important;
 }
+
+// 强制将 d2-crud-plus 搜索栏硬编码的中文按钮替换为英文
+// 查询按钮（多种可能的 class 名都覆盖）
+.crud-search-btn-submit span,
+.d2-crud-search .el-button--primary > span {
+  font-size: 0 !important;
+  &::after {
+    content: 'Search';
+    font-size: 12px;
+  }
+}
+
+// 重置按钮
+.crud-search-btn-reset span,
+.d2-crud-search .el-button:not(.el-button--primary) > span {
+  font-size: 0 !important;
+  &::after {
+    content: 'Reset';
+    font-size: 12px;
+  }
+}

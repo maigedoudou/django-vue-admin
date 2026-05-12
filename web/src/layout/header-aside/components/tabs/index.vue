@@ -20,7 +20,7 @@
           <el-tab-pane
             v-for="page in opened"
             :key="page.fullPath"
-            :label="page.meta.title || $t('header.unnamed')"
+            :label="getPageTitle(page)"
             :name="page.fullPath"
             :closable="isTabClosable(page)"/>
         </el-tabs>
@@ -59,6 +59,7 @@
 <script>
 import { mapState, mapActions } from 'vuex'
 import Sortable from 'sortablejs'
+import { normalizeMenuTitle } from '@/menu'
 
 export default {
   components: {
@@ -104,6 +105,11 @@ export default {
      */
     isTabClosable (page) {
       return page.name !== 'index'
+    },
+    getPageTitle (page) {
+      const title = page && page.meta ? page.meta.title : ''
+      const fallback = page ? (page.name || page.fullPath) : ''
+      return normalizeMenuTitle(title, fallback) || this.$t('header.unnamed')
     },
     /**
      * @description 右键菜单功能点击

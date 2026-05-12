@@ -180,10 +180,6 @@ export default {
       if (!value) return true
       return data.label.indexOf(value) !== -1
     },
-    getCrudOptions () {
-      // eslint-disable-next-line no-undef
-      return crudOptions(this)
-    },
     pageRequest (query) {
       return api.GetList(query).then(res => {
         res.map((value, index) => {

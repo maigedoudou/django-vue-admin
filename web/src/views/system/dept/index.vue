@@ -14,12 +14,12 @@
             v-permission="'Create'"
             type="primary"
             @click="addRow"
-            ><i class="el-icon-plus" /> 新增</el-button
+            ><i class="el-icon-plus" /> {{ $i18n.locale === 'en' ? 'Create' : '新增' }}</el-button
           >
           <importExcel
             api="api/system/dept/"
             v-permission="'Import'"
-          >导入
+          >{{ $i18n.locale === 'en' ? 'Import' : '导入' }}
           </importExcel>
         </el-button-group>
         <crud-toolbar
@@ -37,6 +37,7 @@
 <script>
 import * as api from './api'
 import { crudOptions } from './crud'
+import { localizeCrudSchema } from '@/libs/i18n-system'
 import { d2CrudPlus } from 'd2-crud-plus'
 export default {
   name: 'dept',
@@ -46,7 +47,7 @@ export default {
   },
   methods: {
     getCrudOptions () {
-      return crudOptions(this)
+      return localizeCrudSchema(this, crudOptions(this))
     },
     pageRequest (query) {
       query.lazy = true

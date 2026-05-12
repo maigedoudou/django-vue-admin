@@ -26,7 +26,7 @@
             v-permission="'Create'"
             type="primary"
             @click="addRow"
-            ><i class="el-icon-plus" /> 新增</el-button
+            ><i class="el-icon-plus" /> {{ $t('systemRole.create') }}</el-button
           >
         </el-button-group>
         <crud-toolbar
@@ -41,14 +41,15 @@
 <!--  角色授权  -->
     <div>
       <el-drawer
-        title="角色授权"
+        :title="$t('systemRole.roleAuthorization')"
         :visible.sync="rolePermissionShow"
         direction="rtl"
         size="70%"
         >
         <template slot="title">
           <div>
-            当前角色<el-tag>{{roleObj?roleObj.name:'无'}}</el-tag>
+            {{ $t('systemRole.currentRole') }}
+            <el-tag>{{ roleObj ? roleObj.name : $t('systemRole.none') }}</el-tag>
           </div>
         </template>
         <div>
@@ -62,6 +63,7 @@
 <script>
 import * as api from './api'
 import { crudOptions } from './crud'
+import { localizeCrudSchema } from '@/libs/i18n-system'
 import { d2CrudPlus } from 'd2-crud-plus'
 import rolePermission from '../rolePermission'
 import { mapState } from 'vuex'
@@ -83,7 +85,7 @@ export default {
   },
   methods: {
     getCrudOptions () {
-      return crudOptions(this)
+      return localizeCrudSchema(this, crudOptions(this))
     },
     pageRequest (query) {
       return api.GetList(query)

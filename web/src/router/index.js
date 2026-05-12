@@ -8,7 +8,7 @@ import store from '@/store/index'
 import util from '@/libs/util.js'
 // 路由数据
 import routes from './routes'
-import { getMenu, handleAsideMenu, handleRouter, checkRouter } from '@/menu'
+import { getMenu, handleAsideMenu, handleRouter, checkRouter, portfolioMenuNeedsRefresh } from '@/menu'
 import { request } from '@/api/service'
 
 // fix vue-router NavigationDuplicated
@@ -58,7 +58,13 @@ router.beforeEach(async (to, from, next) => {
       await store.dispatch('d2admin/account/load')
       store.dispatch('d2admin/settings/init')
     }
-    if (!store.state.d2admin.menu || store.state.d2admin.menu.aside.length === 0) {
+    const needMenuReload = !store.state.d2admin.menu ||
+      store.state.d2admin.menu.aside.length === 0 ||
+      portfolioMenuNeedsRefresh(store.state.d2admin.menu.aside)
+
+    if (needMenuReload) {
+      store.commit('d2admin/menu/asideSet', [])
+      store.commit('d2admin/search/init', [])
       await store.dispatch('d2admin/permission/load', routes)
       await store.dispatch('d2admin/dept/load')
       // 动态添加路由

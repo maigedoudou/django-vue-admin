@@ -19,22 +19,22 @@
             type="primary"
             @click="addRow"
           >
-            <i class="el-icon-plus" /> 新增
+            <i class="el-icon-plus" /> {{ $t('systemUser.create') }}
           </el-button>
           <el-button size="small" type="danger" @click="batchDelete">
-            <i class="el-icon-delete"></i> 批量删除
+            <i class="el-icon-delete"></i> {{ $t('systemUser.batchDelete') }}
           </el-button>
           <el-button
             size="small"
             type="warning"
             @click="onExport"
             v-permission="'Export'"
-            ><i class="el-icon-download" /> 导出
+            ><i class="el-icon-download" /> {{ $t('systemUser.export') }}
           </el-button>
           <importExcel
             api="api/system/user/"
             v-permission="'Import'"
-            >导入
+            >{{ $t('systemUser.import') }}
           </importExcel>
         </el-button-group>
         <crud-toolbar
@@ -49,7 +49,7 @@
         <el-button
           class="square"
           size="mini"
-          title="批量删除"
+          :title="$t('systemUser.batchDelete')"
           @click="batchDelete"
           icon="el-icon-delete"
           :disabled="!multipleSelection || multipleSelection.length == 0"
@@ -57,13 +57,13 @@
       </span>
     </d2-crud-x>
     <el-dialog
-      title="密码重置"
+      :title="$t('systemUser.passwordReset')"
       :visible.sync="dialogFormVisible"
       :close-on-click-modal="false"
       width="30%"
     >
       <el-form :model="resetPwdForm" ref="resetPwdForm" :rules="passwordRules">
-        <el-form-item label="密码" prop="pwd">
+        <el-form-item :label="$t('systemUser.password')" prop="pwd">
           <el-input
             v-model="resetPwdForm.pwd"
             type="password"
@@ -72,7 +72,7 @@
             autocomplete="off"
           ></el-input>
         </el-form-item>
-        <el-form-item label="再次输入密码" prop="pwd2">
+        <el-form-item :label="$t('systemUser.confirmPassword')" prop="pwd2">
           <el-input
             v-model="resetPwdForm.pwd2"
             type="password"
@@ -83,8 +83,8 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="resetPwdSubmit">重 置</el-button>
+        <el-button @click="dialogFormVisible = false">{{ $t('systemUser.cancel') }}</el-button>
+        <el-button type="primary" @click="resetPwdSubmit">{{ $t('systemUser.reset') }}</el-button>
       </div>
     </el-dialog>
   </d2-container>
@@ -93,6 +93,7 @@
 <script>
 import * as api from './api'
 import { crudOptions } from './crud'
+import { localizeCrudSchema } from '@/libs/i18n-system'
 import { d2CrudPlus } from 'd2-crud-plus'
 export default {
   name: 'user',
@@ -101,9 +102,9 @@ export default {
     var validatePass = (rule, value, callback) => {
       const pwdRegex = new RegExp('(?=.*[0-9])(?=.*[a-zA-Z]).{8,30}')
       if (value === '') {
-        callback(new Error('请输入密码'))
+        callback(new Error(this.$t('systemUser.enterPassword')))
       } else if (!pwdRegex.test(value)) {
-        callback(new Error('您的密码复杂度太低(密码中必须包含字母、数字)'))
+        callback(new Error(this.$t('systemUser.passwordWeak')))
       } else {
         if (this.resetPwdForm.pwd2 !== '') {
           this.$refs.resetPwdForm.validateField('pwd2')
@@ -113,9 +114,9 @@ export default {
     }
     var validatePass2 = (rule, value, callback) => {
       if (value === '') {
-        callback(new Error('请再次输入密码'))
+        callback(new Error(this.$t('systemUser.reenterPassword')))
       } else if (value !== this.resetPwdForm.pwd) {
-        callback(new Error('两次输入密码不一致!'))
+        callback(new Error(this.$t('systemUser.passwordMismatch')))
       } else {
         callback()
       }
@@ -129,11 +130,11 @@ export default {
       },
       passwordRules: {
         pwd: [
-          { required: true, message: '必填项' },
+          { required: true, message: this.$t('systemUser.required') },
           { validator: validatePass, trigger: 'blur' }
         ],
         pwd2: [
-          { required: true, message: '必填项' },
+          { required: true, message: this.$t('systemUser.required') },
           { validator: validatePass2, trigger: 'blur' }
         ]
       }
@@ -142,7 +143,7 @@ export default {
   methods: {
     getCrudOptions () {
       this.crud.searchOptions.form.user_type = 0
-      return crudOptions(this)
+      return localizeCrudSchema(this, crudOptions(this))
     },
     pageRequest (query) {
       return api.GetList(query)
@@ -161,9 +162,9 @@ export default {
     },
     onExport () {
       const that = this
-      this.$confirm('是否确认导出所有数据项?', '警告', {
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
+      this.$confirm(this.$t('systemUser.confirmExport'), this.$t('systemUser.warning'), {
+        confirmButtonText: this.$t('systemUser.confirm'),
+        cancelButtonText: this.$t('systemUser.cancel'),
         type: 'warning'
       }).then(function () {
         const query = that.getSearch().getForm()
@@ -192,10 +193,10 @@ export default {
               pwd: null,
               pwd2: null
             }
-            that.$message.success('修改成功')
+            that.$message.success(that.$t('systemUser.updateSuccess'))
           })
         } else {
-          that.$message.error('表单校验失败，请检查')
+          that.$message.error(that.$t('systemUser.formError'))
         }
       })
     },

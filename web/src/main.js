@@ -47,6 +47,39 @@ Vue.prototype.$md5 = md5
 Vue.prototype.$util = util
 Vue.prototype.$websocket = websocket
 Vue.prototype.$echarts = echarts
+
+// Force-translate hardcoded Chinese UI text to English
+const ZH_EN_MAP = {
+  '查询': 'Search', '重置': 'Reset', '搜索': 'Search',
+  '确认': 'Confirm', '取消': 'Cancel', '提交': 'Submit',
+  '删除': 'Delete', '新增': 'Add', '编辑': 'Edit',
+  '导入': 'Import', '导出': 'Export', '保存': 'Save',
+  '关闭': 'Close', '确定': 'OK', '返回': 'Back',
+  '刷新': 'Refresh', '上传': 'Upload', '下载': 'Download',
+  '详情': 'Detail', '查看': 'View', '复制': 'Copy',
+  '批量删除': 'Delete Selected', '全部': 'All',
+  '展开': 'Expand', '收起': 'Collapse', '更多': 'More',
+  '操作': 'Actions', '状态': 'Status', '排序': 'Sort',
+}
+function translateEl (root) {
+  root.querySelectorAll('button span, .el-button span, .el-dropdown-menu__item, .el-table__header th .cell, .el-table__header th .cell span, .d2-crud-header span').forEach(el => {
+    const t = el.textContent.trim()
+    if (ZH_EN_MAP[t]) el.textContent = ZH_EN_MAP[t]
+  })
+  // Also handle text nodes inside .cell directly
+  root.querySelectorAll('.el-table__header th .cell').forEach(el => {
+    if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+      const t = el.textContent.trim()
+      if (ZH_EN_MAP[t]) el.childNodes[0].textContent = ZH_EN_MAP[t]
+    }
+  })
+}
+const _observer = new MutationObserver(() => translateEl(document.body))
+document.addEventListener('DOMContentLoaded', () => {
+  translateEl(document.body)
+  _observer.observe(document.body, { childList: true, subtree: true })
+})
+
 new Vue({
   router,
   store,

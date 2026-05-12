@@ -12,6 +12,7 @@ export const crudOptions = (vm) => {
 
     },
     rowHandle: {
+      title: 'Actions',
       view: {
         thin: true,
         text: '',
@@ -155,7 +156,7 @@ export const crudOptions = (vm) => {
       }
     },
     {
-      title: '是否管理员',
+      title: 'Is Admin',
       key: 'admin',
       sortable: true,
       type: 'radio',
@@ -166,7 +167,7 @@ export const crudOptions = (vm) => {
       form: {
         value: false,
         component: {
-          placeholder: '请选择是否管理员',
+          placeholder: 'Select admin status',
           show (context) {
             return vm.info.is_superuser
           }
@@ -174,7 +175,7 @@ export const crudOptions = (vm) => {
       }
     },
     {
-      title: '状态',
+      title: 'Status',
       key: 'status',
       sortable: true,
       search: {
@@ -188,7 +189,7 @@ export const crudOptions = (vm) => {
       form: {
         value: true,
         component: {
-          placeholder: '请选择状态'
+          placeholder: 'Select status'
         }
       },
       component: { props: { color: 'auto' } }

@@ -44,7 +44,6 @@
           <d2-header-message />
           <d2-header-ai-assistant />
           <d2-header-size />
-          <d2-header-locales />
           <d2-header-color />
           <d2-header-user />
         </div>

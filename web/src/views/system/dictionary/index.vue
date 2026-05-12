@@ -46,6 +46,7 @@
 <script>
 import * as api from './api'
 import { crudOptions } from './crud'
+import { localizeCrudSchema } from '@/libs/i18n-system'
 import { d2CrudPlus } from 'd2-crud-plus'
 import SubDictionary from '@/views/system/dictionary/subDictionary/index'
 export default {
@@ -60,7 +61,7 @@ export default {
   },
   methods: {
     getCrudOptions () {
-      return crudOptions(this)
+      return localizeCrudSchema(this, crudOptions(this))
     },
     pageRequest (query) {
       query.is_value = false

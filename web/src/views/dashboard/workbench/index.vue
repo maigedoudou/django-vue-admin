@@ -80,7 +80,7 @@
                          @click="remove(index)" circle></el-button>
               <label>
                 <i :class="allComps[item.element].icon"></i>
-                {{ allComps[item.element].title }}</label>
+                {{ getWidgetTitle(item.element) }}</label>
               <div style="color:#000;">W{{ item.w }} x H{{ item.h }}</div>
             </div>
             <component :class="customizing?'set-component-bg':''" :is="allComps[item.element]"
@@ -116,16 +116,24 @@ export default {
       selectLayout: [],
       defaultLayout: initData,
       layout: [],
+      hiddenElements: ['ver', 'dashboardImg', 'loginRegion'],
       colNum: 48,
       minimize: false,
       pxData: {}
     }
   },
   async created () {
-    this.layout = await this.$store.dispatch('d2admin/db/get', {
+    const savedLayout = await this.$store.dispatch('d2admin/db/get', {
       dbName: 'sys',
       path: 'grid-layout',
       defaultValue: JSON.parse(JSON.stringify(this.defaultLayout)),
+      user: true
+    }, { root: true })
+    this.layout = this.sanitizeLayout(savedLayout)
+    await this.$store.dispatch('d2admin/db/set', {
+      dbName: 'sys',
+      path: 'grid-layout',
+      value: this.layout,
       user: true
     }, { root: true })
   },
@@ -136,16 +144,17 @@ export default {
     allCompsList () {
       var allCompsList = []
       for (var key in this.allComps) {
+        if (this.hiddenElements.includes(key)) continue
         allCompsList.push({
           key: key,
           sort: allComps[key].sort,
-          title: allComps[key].title,
+          title: this.getWidgetTitle(key),
           icon: allComps[key].icon,
           height: allComps[key].height,
           width: allComps[key].width,
           config: allComps[key].config || {},
           isResizable: allComps[key].isResizable || null,
-          description: allComps[key].description
+          description: this.getWidgetDescription(key)
         })
       }
       allCompsList.sort(function (a, b) {
@@ -161,6 +170,22 @@ export default {
     }
   },
   methods: {
+    getWidgetTitle (element) {
+      const comp = this.allComps[element] || {}
+      const key = `dashboardWidgets.${element}.title`
+      if (this.$te(key)) return this.$t(key)
+      return this.$i18n.locale === 'en' ? element : (comp.title || element)
+    },
+    getWidgetDescription (element) {
+      const comp = this.allComps[element] || {}
+      const key = `dashboardWidgets.${element}.description`
+      if (this.$te(key)) return this.$t(key)
+      return this.$i18n.locale === 'en' ? '' : (comp.description || '')
+    },
+    sanitizeLayout (layout) {
+      if (!Array.isArray(layout)) return []
+      return layout.filter(item => !this.hiddenElements.includes(item.element))
+    },
     // 开启自定义
     custom () {
       this.customizing = true
@@ -257,7 +282,10 @@ export default {
     // 打开系统配置
     clickConfig (itme) {
       this.$refs.dashboardConfig.deviceUpgradeDrawer = true
-      this.$refs.dashboardConfig.initData(this.allComps[itme.element], JSON.parse(JSON.stringify(itme)))
+      const comp = { ...this.allComps[itme.element] }
+      comp.title = this.getWidgetTitle(itme.element)
+      comp.description = this.getWidgetDescription(itme.element)
+      this.$refs.dashboardConfig.initData(comp, JSON.parse(JSON.stringify(itme)))
       this.minimize = false
     },
     // 设置实际的宽度和高度

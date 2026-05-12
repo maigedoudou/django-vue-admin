@@ -29,14 +29,14 @@ export default {
         username: [
           {
             required: true,
-            message: '请输入用户名',
+            message: this.$t('login.enterUsername'),
             trigger: 'blur'
           }
         ],
         password: [
           {
             required: true,
-            message: '请输入密码',
+            message: this.$t('login.enterPassword'),
             trigger: 'blur'
           }
         ]
@@ -47,12 +47,12 @@ export default {
       selectUsersDialogVisible: false,
       users: [
         {
-          name: '超管',
+          name: this.$t('login.superAdmin'),
           username: 'superadmin',
           password: 'admin123456'
         },
         {
-          name: '管理员',
+          name: this.$t('login.admin'),
           username: 'admin',
           password: 'admin123456'
         }
@@ -72,7 +72,14 @@ export default {
       clauseUrl: state => state.settings.data['login.clause_url'], // 条款
       captchaState: state => state.settings.data['base.captcha_state'] !== undefined ? state.settings.data['base.captcha_state'] : true, // 验证码
       isPublic: state => state.settings.data.schema_name === 'public' // 是否超级租户
-    })
+    }),
+    displaySiteName () {
+      const name = this.siteName || this.processTitle
+      if (this.$i18n.locale === 'en' && /[\u4e00-\u9fff]/.test(name)) {
+        return this.$t('login.siteNameEn')
+      }
+      return name
+    }
   },
   mounted () {
   },
@@ -118,7 +125,7 @@ export default {
             })
         } else {
           // 登录表单校验失败
-          this.$message.error('表单校验失败，请检查')
+          this.$message.error(this.$t('login.formInvalid'))
         }
       })
     },

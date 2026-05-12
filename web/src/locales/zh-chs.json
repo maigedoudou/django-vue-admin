@@ -9,7 +9,10 @@
     "currentTenant": "当前租户",
     "switchPlan": "切换套餐",
     "tenantInfo": "租户信息",
-    "avatar": "头像"
+    "avatar": "头像",
+    "save": "保存",
+    "close": "关闭",
+    "pleaseInput": "请输入"
   },
   "login": {
     "title": "账号密码登录",
@@ -20,7 +23,17 @@
     "freeTrial": "免费试用",
     "help": "帮助",
     "privacy": "隐私",
-    "terms": "条款"
+    "terms": "条款",
+    "enterUsername": "请输入用户名",
+    "enterPassword": "请输入密码",
+    "enterCaptcha": "请输入验证码",
+    "captchaAlt": "请检查后端是否正常",
+    "quickLoginDev": "快速选择用户登录（限dev环境）",
+    "quickSelectUser": "快速选择用户",
+    "superAdmin": "超管",
+    "admin": "管理员",
+    "siteNameEn": "企业级后台管理系统",
+    "formInvalid": "表单校验失败，请检查"
   },
   "dashboard": {
     "usersTotal": "用户总数",
@@ -62,7 +75,46 @@
     "resetDefault": "恢复默认",
     "close": "关闭",
     "noWidgets": "没有部件啦",
-    "addWidgets": "添加部件"
+    "addWidgets": "添加部件",
+    "widgetConfig": "部件配置"
+  },
+  "dashboardWidgets": {
+    "usersTotal": {
+      "title": "用户总数",
+      "description": "用户总数量"
+    },
+    "loginTotal": {
+      "title": "登录次数",
+      "description": "系统登录总次数"
+    },
+    "attachmentTotal": {
+      "title": "附件统计",
+      "description": "附件数量与占用空间"
+    },
+    "databaseTotal": {
+      "title": "数据库统计",
+      "description": "数据库表数量与占用空间"
+    },
+    "usersActive": {
+      "title": "用户新增统计",
+      "description": "用户新增以及活跃统计数据"
+    },
+    "registeredUser": {
+      "title": "注册用户",
+      "description": "注册趋势统计"
+    },
+    "userLogin": {
+      "title": "登录趋势",
+      "description": "登录趋势统计"
+    },
+    "welcome": {
+      "title": "欢迎使用",
+      "description": "项目简介"
+    },
+    "time": {
+      "title": "时间",
+      "description": "当前时间"
+    }
   },
   "header": {
     "search": "搜索页面",
@@ -148,6 +200,82 @@
     "q3": "有哪些部门？",
     "dataQueried": "已查询真实数据：",
     "errorHint": "请求失败，请检查 Ollama 服务是否运行"
+  },
+  "systemUser": {
+    "create": "新增",
+    "batchDelete": "批量删除",
+    "export": "导出",
+    "import": "导入",
+    "passwordReset": "密码重置",
+    "password": "密码",
+    "confirmPassword": "再次输入密码",
+    "cancel": "取消",
+    "reset": "重置",
+    "enterPassword": "请输入密码",
+    "passwordWeak": "您的密码复杂度太低(密码中必须包含字母、数字)",
+    "reenterPassword": "请再次输入密码",
+    "passwordMismatch": "两次输入密码不一致!",
+    "required": "必填项",
+    "confirmExport": "是否确认导出所有数据项?",
+    "warning": "警告",
+    "confirm": "确定",
+    "updateSuccess": "修改成功",
+    "formError": "表单校验失败，请检查",
+    "index": "序号",
+    "keyword": "关键词",
+    "enterKeyword": "请输入关键词",
+    "departmentName": "部门名称",
+    "account": "账号",
+    "accountRequired": "账号必填项",
+    "enterAccount": "请输入账号",
+    "passwordRequired": "密码必填项",
+    "name": "姓名",
+    "nameRequired": "姓名必填项",
+    "enterName": "请输入姓名",
+    "department": "部门",
+    "role": "角色",
+    "roleName": "角色名称",
+    "permissionKey": "权限标识",
+    "mobile": "手机号码",
+    "invalidMobile": "请输入正确的手机号码",
+    "enterMobile": "请输入手机号码",
+    "email": "邮箱",
+    "invalidEmail": "请输入正确的邮箱地址",
+    "enterEmail": "请输入邮箱",
+    "gender": "性别",
+    "userType": "用户类型",
+    "status": "状态",
+    "avatar": "头像",
+    "avatarLimit": "限制文件大小不能超过500k"
+  },
+  "operationLog": {
+    "delete": "删除",
+    "index": "序号",
+    "keyword": "关键词",
+    "enterKeyword": "请输入关键词",
+    "requestModule": "请求模块",
+    "enterRequestModule": "请输入请求模块",
+    "requestPath": "请求地址",
+    "enterRequestPath": "请输入请求地址",
+    "requestBody": "请求参数",
+    "requestMethod": "请求方法",
+    "enterRequestMethod": "请输入请求方法",
+    "requestMsg": "操作说明",
+    "requestIp": "IP地址",
+    "enterRequestIp": "请输入IP地址",
+    "requestBrowser": "请求浏览器",
+    "responseCode": "响应码",
+    "requestOs": "操作系统",
+    "jsonResult": "返回信息",
+    "operator": "操作人",
+    "updateDatetime": "更新时间",
+    "createDatetime": "操作时间"
+  },
+  "systemRole": {
+    "create": "新增",
+    "roleAuthorization": "角色授权",
+    "currentRole": "当前角色",
+    "none": "无"
   },
   "page": {
     "demo": {

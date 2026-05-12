@@ -31,7 +31,7 @@ export const crudOptions = (vm) => {
       },
       remove: {
         thin: true,
-        text: '删除',
+        text: vm.$t('operationLog.delete'),
         show: false,
         disabled () {
           return !vm.hasPermissions('Delete')
@@ -43,16 +43,16 @@ export const crudOptions = (vm) => {
     },
     formOptions: {
       disabled: true,
-      defaultSpan: 12 // 默认的表单 span
+      defaultSpan: 12
     },
-    indexRow: { // 或者直接传true,不显示title，不居中
-      title: '序号',
+    indexRow: {
+      title: vm.$t('operationLog.index'),
       align: 'center',
       width: 70
     },
     columns: [
       {
-        title: '关键词',
+        title: vm.$t('operationLog.keyword'),
         key: 'search',
         show: false,
         disabled: true,
@@ -62,7 +62,7 @@ export const crudOptions = (vm) => {
         form: {
           show: false,
           component: {
-            placeholder: '请输入关键词'
+            placeholder: vm.$t('operationLog.enterKeyword')
           }
         }
       },
@@ -76,7 +76,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '请求模块',
+        title: vm.$t('operationLog.requestModule'),
         key: 'request_modular',
         search: {
           disabled: false
@@ -86,12 +86,12 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true,
           component: {
-            placeholder: '请输入请求模块'
+            placeholder: vm.$t('operationLog.enterRequestModule')
           }
         }
       },
       {
-        title: '请求地址',
+        title: vm.$t('operationLog.requestPath'),
         key: 'request_path',
         search: {
           disabled: false
@@ -101,12 +101,12 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true,
           component: {
-            placeholder: '请输入请求地址'
+            placeholder: vm.$t('operationLog.enterRequestPath')
           }
         }
       },
       {
-        title: '请求参数',
+        title: vm.$t('operationLog.requestBody'),
         key: 'request_body',
         search: {
           disabled: true
@@ -122,12 +122,12 @@ export const crudOptions = (vm) => {
             autosize: {
               minRows: 2, maxRows: 8
             },
-            placeholder: '请输入关键词'
+            placeholder: vm.$t('operationLog.enterKeyword')
           }
         }
       },
       {
-        title: '请求方法',
+        title: vm.$t('operationLog.requestMethod'),
         key: 'request_method',
         width: 80,
         type: 'input',
@@ -137,13 +137,13 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true,
           component: {
-            placeholder: '请输入请求方法'
+            placeholder: vm.$t('operationLog.enterRequestMethod')
           }
         },
-        component: { props: { color: 'auto' } } // 自动染色
+        component: { props: { color: 'auto' } }
       },
       {
-        title: '操作说明',
+        title: vm.$t('operationLog.requestMsg'),
         key: 'request_msg',
         disabled: true,
         form: {
@@ -153,7 +153,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: 'IP地址',
+        title: vm.$t('operationLog.requestIp'),
         key: 'request_ip',
         search: {
           disabled: false
@@ -163,23 +163,23 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true,
           component: {
-            placeholder: '请输入IP地址'
+            placeholder: vm.$t('operationLog.enterRequestIp')
           }
         },
-        component: { props: { color: 'auto' } } // 自动染色
+        component: { props: { color: 'auto' } }
       },
       {
-        title: '请求浏览器',
+        title: vm.$t('operationLog.requestBrowser'),
         key: 'request_browser',
         width: 180,
         type: 'input',
         form: {
           disabled: true
         },
-        component: { props: { color: 'auto' } } // 自动染色
+        component: { props: { color: 'auto' } }
       },
       {
-        title: '响应码',
+        title: vm.$t('operationLog.responseCode'),
         key: 'response_code',
         search: {
           disabled: true
@@ -189,10 +189,10 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true
         },
-        component: { props: { color: 'auto' } } // 自动染色
+        component: { props: { color: 'auto' } }
       },
       {
-        title: '操作系统',
+        title: vm.$t('operationLog.requestOs'),
         key: 'request_os',
         disabled: true,
         search: {
@@ -202,10 +202,10 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true
         },
-        component: { props: { color: 'auto' } } // 自动染色
+        component: { props: { color: 'auto' } }
       },
       {
-        title: '返回信息',
+        title: vm.$t('operationLog.jsonResult'),
         key: 'json_result',
         search: {
           disabled: true
@@ -215,9 +215,9 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true
         },
-        component: { props: { color: 'auto' } } // 自动染色
+        component: { props: { color: 'auto' } }
       }, {
-        title: '操作人',
+        title: vm.$t('operationLog.operator'),
         width: 100,
         key: 'creator_name',
         form: {
@@ -225,7 +225,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '更新时间',
+        title: vm.$t('operationLog.updateDatetime'),
         key: 'update_datetime',
         width: 160,
         show: false,
@@ -236,7 +236,7 @@ export const crudOptions = (vm) => {
       },
       {
         fixed: 'right',
-        title: '操作时间',
+        title: vm.$t('operationLog.createDatetime'),
         key: 'create_datetime',
         width: 160,
         type: 'datetime',

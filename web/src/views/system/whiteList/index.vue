@@ -37,6 +37,7 @@
 <script>
 import * as api from './api'
 import { crudOptions } from './crud'
+import { localizeCrudSchema } from '@/libs/i18n-system'
 import { d2CrudPlus } from 'd2-crud-plus'
 export default {
   name: 'whiteList',
@@ -46,7 +47,7 @@ export default {
   },
   methods: {
     getCrudOptions () {
-      return crudOptions(this)
+      return localizeCrudSchema(this, crudOptions(this))
     },
     pageRequest (query) {
       const menuId = this.$route.params.id

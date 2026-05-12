@@ -8,7 +8,7 @@
         <div style="text-align: center">{{ elProps.fields[key].name }}</div>
       </el-col>
       <el-col :span="2">
-        <div style="text-align: center">操作</div>
+        <div style="text-align: center">operation</div>
       </el-col>
     </el-row>
     <el-form :model="currentForm" ref="currentFormRef" label-width="0px" size="mini" type="flex">

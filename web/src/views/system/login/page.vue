@@ -10,7 +10,7 @@
         <!-- logo -->
         <img class="page-login--logo" :src="siteLogo" width="300"/>
         <div class="w3_info">
-          <h2 style="text-align: center">{{ siteName || processTitle }}</h2>
+          <h2 style="text-align: center">{{ displaySiteName || processTitle }}</h2>
           <el-card shadow="always" class="card">
             <el-tabs v-model="activeName">
               <el-tab-pane :label="$t('login.title')" name="first" stretch>
@@ -46,7 +46,7 @@
                   <el-form-item
                     prop="captcha"
                     v-if="captchaState"
-                    :rules="{required: true,message: '请输入验证码',trigger: 'blur'}"
+                    :rules="{required: true,message: $t('login.enterCaptcha'),trigger: 'blur'}"
                   >
                     <el-input
                       type="text"
@@ -56,7 +56,7 @@
                     >
                       <template slot="append">
                         <img
-                          alt="请检查后端是否正常~~"
+                          :alt="$t('login.captchaAlt')"
                           class="login-code"
                           style="cursor: pointer;width:145px;height: 33px;"
                           height="33px"
@@ -94,20 +94,11 @@
             @click="selectUsersDialogVisible = true"
             v-if="$env === 'development'"
           >
-            快速选择用户登录（限dev环境）
+            {{ $t('login.quickLoginDev') }}
           </el-button>
           <!-- footer -->
           <div class="footer">
-            <p class="page-login--content-footer-locales">
-              <a
-                v-for="language in $languages"
-                :key="language.value"
-                @click="onChangeLocale(language.value)"
-                style="cursor:pointer;"
-              >
-                {{ language.label }}
-              </a>
-            </p>
+
             <p>Copyright &copy; {{ copyright }}</p>
             <p>
               <a href="https://beian.miit.gov.cn" target="_blank">{{
@@ -124,7 +115,7 @@
       <!-- //main content -->
     </div>
     <!-- //container -->
-    <el-dialog title="快速选择用户" :visible.sync="selectUsersDialogVisible" width="400px" append-to-body>
+    <el-dialog :title="$t('login.quickSelectUser')" :visible.sync="selectUsersDialogVisible" width="400px" append-to-body>
       <el-row :gutter="10" style="margin: -20px 0px -10px 0px">
         <el-col v-for="(user, index) in users" :key="index" :span="8">
           <div class="page-login--quick-user" @click="handleUserBtnClick(user)">

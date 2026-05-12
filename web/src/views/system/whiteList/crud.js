@@ -12,6 +12,7 @@ export const crudOptions = (vm) => {
       height: '100%' // 表格高度100%, 使用toolbar必须设置
     },
     rowHandle: {
+      title: 'Actions',
       width: 180,
       edit: {
         thin: true,

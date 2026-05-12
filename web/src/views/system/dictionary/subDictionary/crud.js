@@ -10,6 +10,7 @@ export const crudOptions = (vm) => {
       border: false
     },
     rowHandle: {
+      title: 'Actions',
       width: 140,
       view: {
         thin: true,

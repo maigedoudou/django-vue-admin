@@ -17,6 +17,7 @@ export const crudOptions = (vm) => {
       width: 46
     },
     rowHandle: {
+      title: 'Actions',
       width: 240,
       fixed: 'right',
       view: {
@@ -43,7 +44,7 @@ export const crudOptions = (vm) => {
       custom: [
         {
           thin: true,
-          text: '密码重置',
+          text: vm.$t('systemUser.passwordReset'),
           size: 'small',
           type: 'warning',
           icon: 'el-icon-refresh-left',
@@ -61,13 +62,13 @@ export const crudOptions = (vm) => {
       defaultSpan: 12 // 默认的表单 span
     },
     indexRow: { // 或者直接传true,不显示title，不居中
-      title: '序号',
+      title: vm.$t('systemUser.index'),
       align: 'center',
       width: 60
     },
     columns: [
       {
-        title: '关键词',
+        title: vm.$t('systemUser.keyword'),
         key: 'search',
         show: false,
         disabled: true,
@@ -77,7 +78,7 @@ export const crudOptions = (vm) => {
         form: {
           disabled: true,
           component: {
-            placeholder: '请输入关键词'
+            placeholder: vm.$t('systemUser.enterKeyword')
           }
         },
         view: {
@@ -93,7 +94,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '部门名称',
+        title: vm.$t('systemUser.departmentName'),
         key: 'dept__name',
         treeNode: true, // 设置为树形列
         search: {
@@ -110,7 +111,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '账号',
+        title: vm.$t('systemUser.account'),
         key: 'username',
         search: {
           disabled: false
@@ -121,11 +122,11 @@ export const crudOptions = (vm) => {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '账号必填项'
+              message: vm.$t('systemUser.accountRequired')
             }
           ],
           component: {
-            placeholder: '请输入账号'
+            placeholder: vm.$t('systemUser.enterAccount')
           },
           itemProps: {
             class: { yxtInput: true }
@@ -133,7 +134,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '密码',
+        title: vm.$t('systemUser.password'),
         key: 'password',
         minWidth: 90,
         type: 'input',
@@ -141,13 +142,13 @@ export const crudOptions = (vm) => {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '密码必填项'
+              message: vm.$t('systemUser.passwordRequired')
             }
           ],
           component: {
             span: 12,
             showPassword: true,
-            placeholder: '请输入密码'
+            placeholder: vm.$t('systemUser.enterPassword')
           },
           value: vm.systemConfig('base.default_password'),
           editDisabled: true,
@@ -163,7 +164,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '姓名',
+        title: vm.$t('systemUser.name'),
         key: 'name',
         sortable: 'custom',
         minWidth: 90,
@@ -175,12 +176,12 @@ export const crudOptions = (vm) => {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '姓名必填项'
+              message: vm.$t('systemUser.nameRequired')
             }
           ],
           component: {
             span: 12,
-            placeholder: '请输入姓名'
+            placeholder: vm.$t('systemUser.enterName')
           },
           itemProps: {
             class: { yxtInput: true }
@@ -188,7 +189,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '部门',
+        title: vm.$t('systemUser.department'),
         key: 'dept',
         search: {
           disabled: false
@@ -206,7 +207,7 @@ export const crudOptions = (vm) => {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '必填项'
+              message: vm.$t('systemUser.required')
             }
           ],
           itemProps: {
@@ -224,7 +225,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '角色',
+        title: vm.$t('systemUser.role'),
         key: 'role',
         search: {
           disabled: true
@@ -258,7 +259,7 @@ export const crudOptions = (vm) => {
           rules: [ // 表单校验规则
             {
               required: true,
-              message: '必填项'
+              message: vm.$t('systemUser.required')
             }
           ],
           itemProps: {
@@ -272,11 +273,11 @@ export const crudOptions = (vm) => {
               columns: [
                 {
                   field: 'name',
-                  title: '角色名称'
+                  title: vm.$t('systemUser.roleName')
                 },
                 {
                   field: 'key',
-                  title: '权限标识'
+                  title: vm.$t('systemUser.permissionKey')
                 }
               ]
             }
@@ -289,7 +290,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '手机号码',
+        title: vm.$t('systemUser.mobile'),
         key: 'mobile',
         search: {
           disabled: false
@@ -300,40 +301,40 @@ export const crudOptions = (vm) => {
           rules: [
             {
               max: 20,
-              message: '请输入正确的手机号码',
+              message: vm.$t('systemUser.invalidMobile'),
               trigger: 'blur'
             },
             {
               pattern: /^1[3-9]\d{9}$/,
-              message: '请输入正确的手机号码'
+              message: vm.$t('systemUser.invalidMobile')
             }
           ],
           itemProps: {
             class: { yxtInput: true }
           },
           component: {
-            placeholder: '请输入手机号码'
+            placeholder: vm.$t('systemUser.enterMobile')
           }
         }
       }, {
-        title: '邮箱',
+        title: vm.$t('systemUser.email'),
         key: 'email',
         minWidth: 180,
         form: {
           rules: [
             {
               type: 'email',
-              message: '请输入正确的邮箱地址',
+              message: vm.$t('systemUser.invalidEmail'),
               trigger: ['blur', 'change']
             }
           ],
           component: {
-            placeholder: '请输入邮箱'
+            placeholder: vm.$t('systemUser.enterEmail')
           }
         }
       },
       {
-        title: '性别',
+        title: vm.$t('systemUser.gender'),
         key: 'gender',
         type: 'radio',
         width: 70,
@@ -348,25 +349,7 @@ export const crudOptions = (vm) => {
         },
         component: { props: { color: 'auto' } } // 自动染色
       }, {
-        title: '用户类型',
-        key: 'user_type',
-        search: {
-          disabled: false
-        },
-        width: 145,
-        type: 'select',
-        dict: {
-          data: vm.dictionary('user_type')
-        },
-        form: {
-          show: false,
-          value: 0,
-          component: {
-            span: 12
-          }
-        }
-      }, {
-        title: '状态',
+        title: vm.$t('systemUser.status'),
         key: 'is_active',
         search: {
           disabled: false
@@ -384,7 +367,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '头像',
+        title: vm.$t('systemUser.avatar'),
         key: 'avatar',
         type: 'avatar-cropper',
         width: 60,
@@ -400,7 +383,7 @@ export const crudOptions = (vm) => {
             },
             span: 24
           },
-          helper: '限制文件大小不能超过500k'
+          helper: vm.$t('systemUser.avatarLimit')
         }
       }
     ].concat(vm.commonEndColumns({

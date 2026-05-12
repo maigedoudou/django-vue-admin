@@ -4,23 +4,23 @@
       :visible.sync="deviceUpgradeDrawer"
       :size="500">
       <div slot="title">
-        <span>部件配置</span>
+        <span>{{ $t('dashboard.widgetConfig') }}</span>
         <el-tag size="small" style="margin-left: 10px">{{ myComp.title }}</el-tag>
       </div>
       <!--   组件内容   -->
       <el-form ref="ruleForm" label-width="100px" class="demo-ruleForm">
         <el-form-item
           v-for="(item,index) in items.config"
-          :label="item.label"
+          :label="normalizeLabel(item.label)"
           :key="index"
           :rules="item.rules">
-          <el-input v-if="item.type==='input'" v-model="item.value" :placeholder="item.placeholder || '请输入'"></el-input>
+          <el-input v-if="item.type==='input'" v-model="item.value" :placeholder="normalizePlaceholder(item.placeholder) || $t('common.pleaseInput')"></el-input>
           <el-switch v-if="item.type==='boot'" v-model="item.value" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
           <el-color-picker v-if="item.type==='color'" v-model="item.value" show-alpha :predefine="predefineColors"></el-color-picker>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="saveConfig">保存</el-button>
-          <el-button @click="deviceUpgradeDrawer = false">关闭</el-button>
+          <el-button type="primary" @click="saveConfig">{{ $t('common.save') }}</el-button>
+          <el-button @click="deviceUpgradeDrawer = false">{{ $t('common.close') }}</el-button>
         </el-form-item>
       </el-form>
     </el-drawer>
@@ -56,8 +56,50 @@ export default {
   mounted () {
   },
   methods: {
+    normalizeLabel (label) {
+      if (this.$i18n.locale !== 'en') return label
+      const map = {
+        '显示头部信息': 'Show Header',
+        '背景颜色': 'Background Color',
+        '字体颜色': 'Font Color',
+        '图片地址': 'Image URL',
+        '跳转地址': 'Redirect URL'
+      }
+      return map[label] || label
+    },
+    normalizePlaceholder (placeholder) {
+      if (this.$i18n.locale !== 'en') return placeholder
+      const map = {
+        '颜色为空则随机变换颜色': 'Leave empty for random color',
+        '请选择字体颜色': 'Please select font color',
+        '请输入图片地址': 'Please enter image URL',
+        '请输入跳转地址': 'Please enter redirect URL'
+      }
+      return map[placeholder] || placeholder
+    },
+    normalizeRuleMessage (message) {
+      if (this.$i18n.locale !== 'en') return message
+      const map = {
+        '不能为空': 'This field is required'
+      }
+      return map[message] || message
+    },
     initData (myComp, items) {
       this.myComp = myComp
+      if (items && items.config) {
+        Object.keys(items.config).forEach(key => {
+          const configItem = items.config[key]
+          if (!configItem) return
+          configItem.label = this.normalizeLabel(configItem.label)
+          configItem.placeholder = this.normalizePlaceholder(configItem.placeholder)
+          if (Array.isArray(configItem.rules)) {
+            configItem.rules = configItem.rules.map(rule => ({
+              ...rule,
+              message: this.normalizeRuleMessage(rule.message)
+            }))
+          }
+        })
+      }
       this.items = items
       console.log(1112, this.myComp, this.items)
     },

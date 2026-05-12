@@ -9,7 +9,10 @@
     "currentTenant": "Current Tenant",
     "switchPlan": "Switch Plan",
     "tenantInfo": "Tenant Info",
-    "avatar": "Avatar"
+    "avatar": "Avatar",
+    "save": "Save",
+    "close": "Close",
+    "pleaseInput": "Please input"
   },
   "login": {
     "title": "Sign In",
@@ -20,7 +23,17 @@
     "freeTrial": "Free Trial",
     "help": "Help",
     "privacy": "Privacy",
-    "terms": "Terms"
+    "terms": "Terms",
+    "enterUsername": "Please enter username",
+    "enterPassword": "Please enter password",
+    "enterCaptcha": "Please enter captcha",
+    "captchaAlt": "Please check whether backend service is running",
+    "quickLoginDev": "Quick user login (dev only)",
+    "quickSelectUser": "Quick user selection",
+    "superAdmin": "Super Admin",
+    "admin": "Admin",
+    "siteNameEn": "Enterprise Admin System",
+    "formInvalid": "Form validation failed, please check"
   },
   "dashboard": {
     "usersTotal": "Total Users",
@@ -62,7 +75,46 @@
     "resetDefault": "Reset Default",
     "close": "Close",
     "noWidgets": "No widgets",
-    "addWidgets": "Add Widgets"
+    "addWidgets": "Add Widgets",
+    "widgetConfig": "Widget Configuration"
+  },
+  "dashboardWidgets": {
+    "usersTotal": {
+      "title": "Total Users",
+      "description": "Total number of users"
+    },
+    "loginTotal": {
+      "title": "Total Logins",
+      "description": "Total login count"
+    },
+    "attachmentTotal": {
+      "title": "Attachments",
+      "description": "Attachment count and storage usage"
+    },
+    "databaseTotal": {
+      "title": "Database",
+      "description": "Database table count and used size"
+    },
+    "usersActive": {
+      "title": "User Activity",
+      "description": "New registrations and active users"
+    },
+    "registeredUser": {
+      "title": "Registered Users",
+      "description": "Registration trend"
+    },
+    "userLogin": {
+      "title": "Login Trend",
+      "description": "Login trend analysis"
+    },
+    "welcome": {
+      "title": "Welcome",
+      "description": "Project quick intro"
+    },
+    "time": {
+      "title": "Clock",
+      "description": "Current date and time"
+    }
   },
   "header": {
     "search": "Search pages",
@@ -148,5 +200,81 @@
     "q3": "What departments exist?",
     "dataQueried": "Real data queried:",
     "errorHint": "Request failed. Please check if Ollama service is running."
+  },
+  "systemUser": {
+    "create": "Create",
+    "batchDelete": "Batch Delete",
+    "export": "Export",
+    "import": "Import",
+    "passwordReset": "Reset Password",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "cancel": "Cancel",
+    "reset": "Reset",
+    "enterPassword": "Please enter password",
+    "passwordWeak": "Password is too weak (must contain letters and numbers)",
+    "reenterPassword": "Please re-enter password",
+    "passwordMismatch": "Passwords do not match",
+    "required": "Required",
+    "confirmExport": "Do you want to export all data items?",
+    "warning": "Warning",
+    "confirm": "Confirm",
+    "updateSuccess": "Updated successfully",
+    "formError": "Form validation failed, please check",
+    "index": "No.",
+    "keyword": "Keyword",
+    "enterKeyword": "Please enter keyword",
+    "departmentName": "Department Name",
+    "account": "Account",
+    "accountRequired": "Account is required",
+    "enterAccount": "Please enter account",
+    "passwordRequired": "Password is required",
+    "name": "Name",
+    "nameRequired": "Name is required",
+    "enterName": "Please enter name",
+    "department": "Department",
+    "role": "Role",
+    "roleName": "Role Name",
+    "permissionKey": "Permission Key",
+    "mobile": "Mobile",
+    "invalidMobile": "Please enter a valid mobile number",
+    "enterMobile": "Please enter mobile number",
+    "email": "Email",
+    "invalidEmail": "Please enter a valid email address",
+    "enterEmail": "Please enter email",
+    "gender": "Gender",
+    "userType": "User Type",
+    "status": "Status",
+    "avatar": "Avatar",
+    "avatarLimit": "File size must not exceed 500k"
+  },
+  "systemRole": {
+    "create": "Create",
+    "roleAuthorization": "Role Authorization",
+    "currentRole": "Current Role",
+    "none": "None"
+  },
+  "operationLog": {
+    "delete": "Delete",
+    "index": "No.",
+    "keyword": "Keyword",
+    "enterKeyword": "Please enter keyword",
+    "requestModule": "Request Module",
+    "enterRequestModule": "Please enter request module",
+    "requestPath": "Request Path",
+    "enterRequestPath": "Please enter request path",
+    "requestBody": "Request Body",
+    "requestMethod": "Request Method",
+    "enterRequestMethod": "Please enter request method",
+    "requestMsg": "Description",
+    "requestIp": "IP Address",
+    "enterRequestIp": "Please enter IP address",
+    "requestBrowser": "Browser",
+    "responseCode": "Response Code",
+    "requestOs": "OS",
+    "jsonResult": "Response Body",
+    "operator": "Operator",
+    "updateDatetime": "Update Time",
+    "createDatetime": "Operation Time"
   }
 }
