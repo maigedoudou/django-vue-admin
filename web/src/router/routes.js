@@ -11,14 +11,14 @@ const frameIn = [{
   redirect: { name: 'index' },
   component: layoutHeaderAside,
   children: [
-    // 控制台
+    // 控制台（已移除 Dashboard，重定向到部门管理）
     {
       path: 'index',
       name: 'index',
+      redirect: '/dept',
       meta: {
         auth: true
-      },
-      component: _import('dashboard/workbench/index')
+      }
     },
     {
       path: 'page1',

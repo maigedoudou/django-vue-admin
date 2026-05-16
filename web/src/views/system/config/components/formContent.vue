@@ -181,7 +181,7 @@
                   <vxe-input v-model="row.value" type="text"></vxe-input>
                 </template>
               </vxe-column>
-              <vxe-column title="操作" width="100" show-overflow>
+              <vxe-column title="Actions" width="100" show-overflow>
                 <template #default="{ row,index }">
                   <el-popconfirm
                     title="删除后无法恢复,确定删除吗？"

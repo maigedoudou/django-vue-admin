@@ -11,6 +11,7 @@ export const crudOptions = (vm) => {
       highlightCurrentRow: false
     },
     rowHandle: {
+      title: 'Actions',
       fixed: 'right',
       view: {
         thin: true,

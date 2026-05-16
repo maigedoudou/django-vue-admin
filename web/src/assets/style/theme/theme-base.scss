@@ -120,8 +120,18 @@
       .logo-group {
         float: left;
         text-align: center;
+        display: flex;
+        align-items: center;
+        padding: 0 8px;
         img {
-          height: 60px;
+          height: 40px;
+        }
+        .logo-title {
+          margin-left: 8px;
+          font-size: 18px;
+          font-weight: bold;
+          white-space: nowrap;
+          color: inherit;
         }
       }
       .logo-transition {

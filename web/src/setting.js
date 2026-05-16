@@ -16,11 +16,11 @@ export default {
   page: {
     opened: [
       {
-        name: 'index',
-        fullPath: '/index',
+        name: 'dept',
+        fullPath: '/dept',
         meta: {
-          title: 'Dashboard',
-          auth: false
+          title: 'Department Management',
+          auth: true
         }
       }
     ]
