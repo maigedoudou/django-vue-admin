@@ -100,7 +100,7 @@
         </el-table-column>
       </template>
       <el-table-column
-        label="操作"
+        label="Actions"
         fixed="right"
         v-show="colButtons.show"
         :width="colButtons.width">
