@@ -92,7 +92,12 @@ Vue.use(d2CrudPlus, {
         defaultSpan: 12, // 默认的表单 span
         saveRemind: true,
         labelWidth: '110px',
-        appendToBody: true
+        appendToBody: true,
+
+        // 这里才是正确位置
+        editTitle: 'Edit',
+        addTitle: 'Add',
+        viewTitle: 'View'
       },
       viewOptions: {
         disabled: false,
@@ -102,7 +107,8 @@ Vue.use(d2CrudPlus, {
         title: 'Actions',
         width: 260,
         edit: {
-          type: 'primary'
+          type: 'primary',
+          text: 'Edit'   // 加这行
         }
       }
     }

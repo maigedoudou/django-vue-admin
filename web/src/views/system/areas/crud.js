@@ -63,7 +63,8 @@ export const crudOptions = (vm) => {
     },
     formOptions: {
       defaultSpan: 24, // 默认的表单 span
-      width: '30%'
+      width: '30%',
+      editTitle: 'Edit'
     },
     indexRow: { // 或者直接传true,不显示title，不居中
       title: '序号',

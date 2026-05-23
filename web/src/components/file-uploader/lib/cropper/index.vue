@@ -39,8 +39,8 @@
           </div>
 
       <div slot="footer" class="dialog-footer">
-        <el-button @click="handleClose" size="mini">取 消</el-button>
-        <el-button type="primary" size="mini" @click="doCropper()">确 定</el-button>
+        <el-button @click="handleClose" size="mini">Cancel</el-button>
+        <el-button type="primary" size="mini" @click="doCropper()">Confirm</el-button>
       </div>
     </el-dialog>
 </template>

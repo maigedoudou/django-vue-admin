@@ -44,7 +44,8 @@ export const crudOptions = (vm) => {
     },
     formOptions: {
       disabled: true,
-      defaultSpan: 12
+      defaultSpan: 12,
+      editTitle: 'Edit'
     },
     indexRow: {
       title: vm.$t('operationLog.index'),

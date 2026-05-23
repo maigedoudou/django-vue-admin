@@ -40,7 +40,8 @@ export const crudOptions = (vm) => {
     formOptions: {
       appendToBody: true, // 子表格必须 否则弹出对话框无法显示最顶层
       defaultSpan: 24, // 默认的表单 span
-      width: '35%'
+      width: '35%',
+      editTitle: 'Edit'
     },
     columns: [
       {

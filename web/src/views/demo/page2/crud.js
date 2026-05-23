@@ -10,7 +10,8 @@ export const crudOptions = (vm) => {
       componentType: 'row'
     },
     formOptions: {
-      defaultSpan: 12 // 默认的表单 span
+      defaultSpan: 12,
+      editTitle: 'Edit' 
     },
     columns: [
       {

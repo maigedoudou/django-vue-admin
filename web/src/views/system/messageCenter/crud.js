@@ -35,19 +35,19 @@ export const crudOptions = (vm) => {
           return !vm.hasPermissions('Delete')
         }
       },
-      custom: [
-        {
-          thin: true,
-          text: null,
-          icon: 'el-icon-view',
-          size: 'small',
-          disabled () {
-            return !vm.hasPermissions('Retrieve')
-          },
-          order: 1,
-          emit: 'onView'
-        }
-      ]
+      // custom: [
+      //   {
+      //     thin: true,
+      //     text: null,
+      //     icon: 'el-icon-view',
+      //     size: 'small',
+      //     disabled () {
+      //       return !vm.hasPermissions('Retrieve')
+      //     },
+      //     order: 1,
+      //     emit: 'onView'
+      //   }
+      // ]
     },
     columns: [
       {

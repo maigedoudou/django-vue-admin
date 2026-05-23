@@ -60,7 +60,8 @@ export const crudOptions = (vm) => {
     },
     formOptions: {
       defaultSpan: 24, // 默认的表单 span
-      width: '35%'
+      width: '35%',
+      editTitle: 'Edit'
     },
     columns: [{
       title: '关键词',

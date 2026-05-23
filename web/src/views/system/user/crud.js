@@ -59,7 +59,8 @@ export const crudOptions = (vm) => {
       componentType: 'form'
     },
     formOptions: {
-      defaultSpan: 12 // 默认的表单 span
+      defaultSpan: 12,
+      editTitle: 'Edit'
     },
     indexRow: { // 或者直接传true,不显示title，不居中
       title: vm.$t('systemUser.index'),
