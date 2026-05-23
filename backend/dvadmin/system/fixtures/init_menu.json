@@ -47,7 +47,7 @@
             "method": 1
           },
           {
-            "name": "编辑",
+            "name": "Edit",
             "value": "Update",
             "api": "/api/system/menu/{id}/",
             "method": 2
@@ -88,7 +88,7 @@
             "method": 1
           },
           {
-            "name": "编辑",
+            "name": "Edit",
             "value": "Update",
             "api": "/api/system/menu_button/{id}/",
             "method": 2
@@ -135,7 +135,7 @@
             "method": 1
           },
           {
-            "name": "编辑",
+            "name": "Edit",
             "value": "Update",
             "api": "/api/system/dept/{id}/",
             "method": 2
@@ -182,7 +182,7 @@
             "method": 1
           },
           {
-            "name": "编辑",
+            "name": "Edit",
             "value": "Update",
             "api": "/api/system/role/{id}/",
             "method": 2
@@ -247,7 +247,7 @@
             "method": 1
           },
           {
-            "name": "编辑",
+            "name": "Edit",
             "value": "Update",
             "api": "/api/system/user/{id}/",
             "method": 2
@@ -306,7 +306,7 @@
             "method": 1
           },
           {
-            "name": "编辑",
+            "name": "Edit",
             "value": "Update",
             "api": "/api/system/message_center/{id}/",
             "method": 2
@@ -353,7 +353,7 @@
             "method": 1
           },
           {
-            "name": "编辑",
+            "name": "Edit",
             "value": "Update",
             "api": "/api/system/api_white_list/{id}/",
             "method": 2
@@ -414,7 +414,7 @@
                 "method": 1
               },
               {
-                "name": "编辑",
+                "name": "Edit",
                 "value": "Update",
                 "api": "/api/system/system_config/{id}/",
                 "method": 2
@@ -461,7 +461,7 @@
                 "method": 1
               },
               {
-                "name": "编辑",
+                "name": "Edit",
                 "value": "Update",
                 "api": "/api/system/dictionary/{id}/",
                 "method": 2
@@ -508,7 +508,7 @@
                 "method": 1
               },
               {
-                "name": "编辑",
+                "name": "Edit",
                 "value": "Update",
                 "api": "/api/system/area/{id}/",
                 "method": 2
@@ -549,7 +549,7 @@
                 "method": 0
               },
               {
-                "name": "编辑",
+                "name": "Edit",
                 "value": "Update",
                 "api": "/api/system/file/{id}/",
                 "method": 1

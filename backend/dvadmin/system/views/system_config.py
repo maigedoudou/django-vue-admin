@@ -183,7 +183,7 @@ class SystemConfigViewSet(CustomModelViewSet):
                 serializer.save()
         websocket_push("dvadmin", message={"sender": 'system', "contentType": 'SYSTEM',
                                            "content": '系统配置有变化~', "systemConfig": True})
-        return DetailResponse(msg="保存成功")
+        return DetailResponse(msg="save successfully")
 
     def get_association_table(self, request):
         """

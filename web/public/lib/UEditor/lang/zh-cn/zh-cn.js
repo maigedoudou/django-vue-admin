@@ -23,7 +23,7 @@ UE.I18N['zh-cn'] = {
         'insertunorderedlist':'无序列表', 'fullscreen':'全屏', 'directionalityltr':'从左向右输入', 'directionalityrtl':'从右向左输入',
         'rowspacingtop':'段前距', 'rowspacingbottom':'段后距',  'pagebreak':'分页', 'insertframe':'插入Iframe', 'imagenone':'默认',
         'imageleft':'左浮动', 'imageright':'右浮动', 'attachment':'附件', 'imagecenter':'居中', 'wordimage':'图片转存',
-        'lineheight':'行间距','edittip' :'编辑提示','customstyle':'自定义标题', 'autotypeset':'自动排版',
+        'lineheight':'行间距','edittip' :'Edit提示','customstyle':'自定义标题', 'autotypeset':'自动排版',
         'webapp':'百度应用','touppercase':'字母大写', 'tolowercase':'字母小写','background':'背景','template':'模板','scrawl':'涂鸦',
         'music':'音乐','inserttable':'插入表格','drafts': '从草稿箱加载', 'charts': '图表'
     },
@@ -91,7 +91,7 @@ UE.I18N['zh-cn'] = {
     'cancel':"取消",
     'closeDialog':"关闭对话框",
     'tableDrag':"表格拖动必须引入uiUtils.js文件！",
-    'autofloatMsg':"工具栏浮动依赖编辑器UI，您首先需要引入UI文件!",
+    'autofloatMsg':"工具栏浮动依赖Edit器UI，您首先需要引入UI文件!",
     'loadconfigError': '获取后台配置项请求出错，上传功能将不能正常使用！',
     'loadconfigFormatError': '后台配置项返回格式出错，上传功能将不能正常使用！',
     'loadconfigHttpError': '请求后台配置项http错误，上传功能将不能正常使用！',
@@ -524,7 +524,7 @@ UE.I18N['zh-cn'] = {
         'static':{
             'lang_input_about':'关于UEditor',
             'lang_input_shortcuts':'快捷键',
-            'lang_input_introduction':'UEditor是由百度web前端研发部开发的所见即所得富文本web编辑器，具有轻量，可定制，注重用户体验等特点。开源基于BSD协议，允许自由使用和修改代码。',
+            'lang_input_introduction':'UEditor是由百度web前端研发部开发的所见即所得富文本webEdit器，具有轻量，可定制，注重用户体验等特点。开源基于BSD协议，允许自由使用和修改代码。',
             'lang_Txt_shortcuts':'快捷键',
             'lang_Txt_func':'功能',
             'lang_Txt_bold':'给选中字设置为加粗',

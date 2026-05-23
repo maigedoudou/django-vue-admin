@@ -60,7 +60,7 @@
                 "children": []
             },
             {
-                "label": "编辑",
+                "label": "Edit",
                 "value": "Update",
                 "parent": 66,
                 "type": 0,

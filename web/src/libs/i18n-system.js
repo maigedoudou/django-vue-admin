@@ -1,6 +1,6 @@
 const COMMON_MAP_EN = {
   '新增': 'Create',
-  '编辑': 'Edit',
+  'Edit': 'Edit',
   '删除': 'Delete',
   '批量删除': 'Batch Delete',
   '导出': 'Export',

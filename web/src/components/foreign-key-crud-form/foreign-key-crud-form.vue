@@ -74,7 +74,7 @@
       </el-form-item>
     </el-form>
     <el-dialog
-      title="富文本内容编辑"
+      title="富文本内容Edit"
       :visible.sync="previewVisible"
       append-to-body
       width="900">
@@ -88,7 +88,7 @@
       </span>
     </el-dialog>
     <el-dialog
-      title="编辑"
+      title="Edit"
       :visible.sync="manyToManyVisible"
       append-to-body
       v-if="currentForm.data && currentForm.data[manyToManyIndex] && manyToManyKey"
@@ -237,7 +237,7 @@ export default {
         // 传入ueditor的配置
         // 文档参考： http://fex.baidu.com/ueditor/#start-config
       },
-      // 富文本弹窗编辑框
+      // 富文本弹窗Edit框
       previewVisible: false,
       ueditorIndex: 0,
       ueditorKey: null,

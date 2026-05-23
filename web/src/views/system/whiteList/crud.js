@@ -16,7 +16,7 @@ export const crudOptions = (vm) => {
       width: 180,
       edit: {
         thin: true,
-        text: '编辑'
+        text: 'Edit'
       },
       remove: {
         thin: true,
@@ -180,7 +180,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '备注',
+        title: 'Comment',
         key: 'description',
         search: {
           disabled: true
@@ -188,7 +188,6 @@ export const crudOptions = (vm) => {
         type: 'textarea',
         form: {
           component: {
-            placeholder: '请输入内容',
             showWordLimit: true,
             maxlength: '200',
             props: {

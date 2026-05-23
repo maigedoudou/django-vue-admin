@@ -86,7 +86,7 @@ export default {
     // 过滤的placeholder
     filterPlaceholder: {
       type: String,
-      default: '输入关键字进行过滤'
+      default: ''
     },
     dialogTitle: {
       type: String,

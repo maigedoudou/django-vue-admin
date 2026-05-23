@@ -4,7 +4,7 @@ export const BUTTON_VALUE_TO_COLOR_MAPPING = {
   0: 'danger',
   false: 'danger',
   Search: 'warning', // 查询
-  Update: 'primary', // 编辑
+  Update: 'primary', // Edit
   Create: 'success', // 新增
   Retrieve: 'info', // 单例
   Delete: 'danger' // 删除

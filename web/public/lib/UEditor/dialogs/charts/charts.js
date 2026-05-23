@@ -3,7 +3,7 @@
  **/
 
 var tableData = [],
-    //编辑器页面table
+    //Edit器页面table
     editorTable = null,
     chartsConfig = window.typeConfig,
     resizeTimer = null,
@@ -491,7 +491,7 @@ dialog.onok = function () {
     //添加图表类型
     info.chartType = currentChartType;
 
-    //同步表格数据到编辑器
+    //同步表格数据到Edit器
     syncTableData();
 
     //执行图表命令
@@ -500,7 +500,7 @@ dialog.onok = function () {
 };
 
 /*
- * 同步图表编辑视图的表格数据到编辑器里的原始表格
+ * 同步图表Edit视图的表格数据到Edit器里的原始表格
  */
 function syncTableData () {
 

@@ -52,7 +52,7 @@ Vue.prototype.$echarts = echarts
 const ZH_EN_MAP = {
   '查询': 'Search', '重置': 'Reset', '搜索': 'Search',
   '确认': 'Confirm', '取消': 'Cancel', '提交': 'Submit',
-  '删除': 'Delete', '新增': 'Add', '编辑': 'Edit',
+  '删除': 'Delete', '新增': 'Add', 'Edit': 'Edit',
   '导入': 'Import', '导出': 'Export', '保存': 'Save',
   '关闭': 'Close', '确定': 'OK', '返回': 'Back',
   '刷新': 'Refresh', '上传': 'Upload', '下载': 'Download',

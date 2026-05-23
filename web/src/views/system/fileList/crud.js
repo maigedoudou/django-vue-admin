@@ -99,7 +99,7 @@ export const crudOptions = (vm) => {
         }
       },
       {
-        title: '备注',
+        title: 'Comment',
         key: 'description',
         show: false,
         search: {
@@ -108,7 +108,6 @@ export const crudOptions = (vm) => {
         type: 'textarea',
         form: {
           component: {
-            placeholder: '请输入内容',
             showWordLimit: true,
             maxlength: '200',
             props: {

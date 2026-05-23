@@ -64,7 +64,7 @@ function addUploadListener() {
 }
 
 function showLocalPath(id) {
-    //单张编辑
+    //单张Edit
     var img = editor.selection.getRange().getClosedNode();
     var images = editor.execCommand('wordimage');
     if(images.length==1 || img && img.tagName == 'IMG'){

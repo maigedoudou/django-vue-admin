@@ -1,21 +1,21 @@
 /**
  * ueditor完整配置项
- * 可以在这里配置整个编辑器的特性
+ * 可以在这里配置整个Edit器的特性
  */
 /** ************************提示********************************
  * 所有被注释的配置项均为UEditor默认值。
  * 修改默认配置请首先确保已经完全明确该参数的真实用途。
- * 主要有两种修改方案，一种是取消此处注释，然后修改成对应参数；另一种是在实例化编辑器时传入对应参数。
- * 当升级编辑器时，可直接使用旧版配置文件替换新版配置文件,不用担心旧版配置文件中因缺少新功能所需的参数而导致脚本报错。
+ * 主要有两种修改方案，一种是取消此处注释，然后修改成对应参数；另一种是在实例化Edit器时传入对应参数。
+ * 当升级Edit器时，可直接使用旧版配置文件替换新版配置文件,不用担心旧版配置文件中因缺少新功能所需的参数而导致脚本报错。
  **************************提示********************************/
 
 (function () {
   /**
-     * 编辑器资源文件根路径。它所表示的含义是：以编辑器实例化页面为当前路径，指向编辑器资源文件（即dialog等文件夹）的路径。
-     * 鉴于很多同学在使用编辑器的时候出现的种种路径问题，此处强烈建议大家使用"相对于网站根目录的相对路径"进行配置。
+     * Edit器资源文件根路径。它所表示的含义是：以Edit器实例化页面为当前路径，指向Edit器资源文件（即dialog等文件夹）的路径。
+     * 鉴于很多同学在使用Edit器的时候出现的种种路径问题，此处强烈建议大家使用"相对于网站根目录的相对路径"进行配置。
      * "相对于网站根目录的相对路径"也就是以斜杠开头的形如"/myProject/ueditor/"这样的路径。
-     * 如果站点中有多个不在同一层级的页面需要实例化编辑器，且引用了同一UEditor的时候，此处的URL可能不适用于每个页面的编辑器。
-     * 因此，UEditor提供了针对不同页面的编辑器可单独配置的根路径，具体来说，在需要实例化编辑器的页面最顶部写上如下代码即可。当然，需要令此处的URL等于对应的配置。
+     * 如果站点中有多个不在同一层级的页面需要实例化Edit器，且引用了同一UEditor的时候，此处的URL可能不适用于每个页面的Edit器。
+     * 因此，UEditor提供了针对不同页面的Edit器可单独配置的根路径，具体来说，在需要实例化Edit器的页面最顶部写上如下代码即可。当然，需要令此处的URL等于对应的配置。
      * window.UEDITOR_HOME_URL = "/xxxx/xxxx/";
      */
   var URL = window.UEDITOR_HOME_URL || getUEBasePath()
@@ -25,13 +25,13 @@
      */
   window.UEDITOR_CONFIG = {
 
-    // 为编辑器实例添加一个路径，这个不能被注释
+    // 为Edit器实例添加一个路径，这个不能被注释
     UEDITOR_HOME_URL: URL,
 
     // 服务器统一请求接口路径
     serverUrl: URL + 'php/controller.php',
 
-    // 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的重新定义
+    // 工具栏上的所有的功能按钮和下拉框，可以在newEdit器的实例时选择自己需要的重新定义
     toolbars: [[
       'fullscreen', 'source', '|', 'undo', 'redo', '|',
       'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
@@ -60,38 +60,38 @@
     //, theme:'default'
     //, themePath:URL +"themes/"
 
-    //, zIndex : 900     //编辑器层级的基数,默认是900
+    //, zIndex : 900     //Edit器层级的基数,默认是900
 
     // 针对getAllHtml方法，会在对应的head标签中增加该编码设置。
     //, charset:"utf-8"
 
-    // 若实例化编辑器的页面手动修改的domain，此处需要设置为true
+    // 若实例化Edit器的页面手动修改的domain，此处需要设置为true
     //, customDomain:false
 
     // 常用配置项目
-    //, isShow : true    //默认显示编辑器
+    //, isShow : true    //默认显示Edit器
 
-    //, textarea:'editorValue' // 提交表单时，服务器获取编辑器提交内容的所用的参数，多实例时可以给容器name属性，会将name给定的值最为每个实例的键值，不用每次实例化的时候都设置这个值
+    //, textarea:'editorValue' // 提交表单时，服务器获取Edit器提交内容的所用的参数，多实例时可以给容器name属性，会将name给定的值最为每个实例的键值，不用每次实例化的时候都设置这个值
 
-    //, initialContent:'欢迎使用ueditor!'    //初始化编辑器的内容,也可以通过textarea/script给值，看官网例子
+    //, initialContent:'欢迎使用ueditor!'    //初始化Edit器的内容,也可以通过textarea/script给值，看官网例子
 
-    //, autoClearinitialContent:true //是否自动清除编辑器初始内容，注意：如果focus属性设置为true,这个也为真，那么编辑器一上来就会触发导致初始化的内容看不到了
+    //, autoClearinitialContent:true //是否自动清除Edit器初始内容，注意：如果focus属性设置为true,这个也为真，那么Edit器一上来就会触发导致初始化的内容看不到了
 
-    //, focus:false //初始化时，是否让编辑器获得焦点true或false
+    //, focus:false //初始化时，是否让Edit器获得焦点true或false
 
     // 如果自定义，最好给p标签如下的行高，要不输入中文时，会有跳动感
-    //, initialStyle:'p{line-height:1em}'//编辑器层级的基数,可以用来改变字体等
+    //, initialStyle:'p{line-height:1em}'//Edit器层级的基数,可以用来改变字体等
 
-    //, iframeCssUrl: URL + '/themes/iframe.css' //给编辑区域的iframe引入一个css文件
+    //, iframeCssUrl: URL + '/themes/iframe.css' //给Edit区域的iframe引入一个css文件
 
     // indentValue
     // 首行缩进距离,默认是2em
     //, indentValue:'2em'
 
-    //, initialFrameWidth:1000  //初始化编辑器宽度,默认1000
-    //, initialFrameHeight:320  //初始化编辑器高度,默认320
+    //, initialFrameWidth:1000  //初始化Edit器宽度,默认1000
+    //, initialFrameHeight:320  //初始化Edit器高度,默认320
 
-    //, readonly : false //编辑器初始化结束后,编辑区域是否是只读的，默认是false
+    //, readonly : false //Edit器初始化结束后,Edit区域是否是只读的，默认是false
 
     //, autoClearEmptyNode : true //getContent时，是否删除空的inlineElement节点（包括嵌套的情况）
 
@@ -104,7 +104,7 @@
 
     //, imagePopup:true      //图片操作的浮层开关，默认打开
 
-    //, autoSyncData:true //自动同步编辑器要提交的数据
+    //, autoSyncData:true //自动同步Edit器要提交的数据
     //, emotionLocalization:false //是否开启表情本地化，默认关闭。若要开启请确保emotion文件夹下包含官网提供的images表情文件夹
 
     // 粘贴只保留标签，去除标签所有属性
@@ -235,7 +235,7 @@
     //        cmdName:'selectall',//执行的command命令，当点击这个右键菜单时
     //        //exec可选，有了exec就会在点击时执行这个function，优先级高于cmdName
     //        exec:function () {
-    //            //this是当前编辑器的实例
+    //            //this是当前Edit器的实例
     //            //this.ui._dialogs['inserttableDialog'].open();
     //        }
     //    }
@@ -281,15 +281,15 @@
     // scaleEnabled
     // 是否可以拉伸长高,默认true(当开启时，自动长高失效)
     //, scaleEnabled:false
-    //, minFrameWidth:800    //编辑器拖动时最小宽度,默认800
-    //, minFrameHeight:220  //编辑器拖动时最小高度,默认220
+    //, minFrameWidth:800    //Edit器拖动时最小宽度,默认800
+    //, minFrameHeight:220  //Edit器拖动时最小高度,默认220
 
     // autoFloatEnabled
     // 是否保持toolbar的位置不动,默认true
     //, autoFloatEnabled:true
     // 浮动时工具栏距离浏览器顶部的高度，用于某些具有固定头部的页面
     //, topOffset:30
-    // 编辑器底部距离工具栏高度(如果参数大于等于编辑器高度，则设置无效)
+    // Edit器底部距离工具栏高度(如果参数大于等于Edit器高度，则设置无效)
     //, toolbarTopOffset:400
 
     // 设置远程图片是否抓取到本地保存
@@ -308,8 +308,8 @@
     //    textAlign:"left",               //段落的排版方式，可以是 left,right,center,justify 去掉这个属性表示不执行排版
     //    imageBlockLine: 'center',       //图片的浮动方式，独占一行剧中,左右浮动，默认: center,left,right,none 去掉这个属性表示不执行排版
     //    pasteFilter: false,             //根据规则过滤没事粘贴进来的内容
-    //    clearFontSize: false,           //去掉所有的内嵌字号，使用编辑器默认的字号
-    //    clearFontFamily: false,         //去掉所有的内嵌字体，使用编辑器默认的字体
+    //    clearFontSize: false,           //去掉所有的内嵌字号，使用Edit器默认的字号
+    //    clearFontFamily: false,         //去掉所有的内嵌字体，使用Edit器默认的字体
     //    removeEmptyNode: false,         // 去掉空节点
     //    //可以去掉的标签
     //    removeTagNames: {标签名字:1},
@@ -332,7 +332,7 @@
     //, codeMirrorJsUrl:URL + "third-party/codemirror/codemirror.js"
     // codeMirrorCssUrl css加载的路径，默认是 URL + "third-party/codemirror/codemirror.css"
     //, codeMirrorCssUrl:URL + "third-party/codemirror/codemirror.css"
-    // 编辑器初始化完成后是否进入源码模式，默认为否。
+    // Edit器初始化完成后是否进入源码模式，默认为否。
     //, sourceEditorFirst:false
 
     // iframeUrlMap
@@ -349,7 +349,7 @@
 
     // 默认过滤规则相关配置项目
     //, disabledTableInTable:true  //禁止表格嵌套
-    //, allowDivTransToP:true      //允许进入编辑器的div标签自动变成p标签
+    //, allowDivTransToP:true      //允许进入Edit器的div标签自动变成p标签
     //, rgb2Hex:true               //默认产出的数据中的color自动从rgb格式变成16进制格式
 
     // xss 过滤是否开启,inserthtml等操作

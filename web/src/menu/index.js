@@ -51,7 +51,7 @@ const menuTitleMap = {
   '查询': 'Query',
   '详情': 'Detail',
   '新增': 'Create',
-  '编辑': 'Edit',
+  'Edit': 'Edit',
   '删除': 'Delete',
   '保存': 'Save',
   '导出': 'Export',

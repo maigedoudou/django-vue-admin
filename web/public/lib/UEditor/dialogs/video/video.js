@@ -45,7 +45,7 @@
         addUrlChangeListener($G("videoUrl"));
         addOkListener();
 
-        //编辑视频时初始化相关信息
+        //Edit视频时初始化相关信息
         (function(){
             var img = editor.selection.getRange().getClosedNode(),url;
             if(img && img.className){
@@ -111,7 +111,7 @@
     }
 
     /**
-     * 将单个视频信息插入编辑器中
+     * 将单个视频信息插入Edit器中
      */
     function insertSingle(){
         var width = $G("videoWidth"),
@@ -129,7 +129,7 @@
     }
 
     /**
-     * 将元素id下的所有代表视频的图片插入编辑器中
+     * 将元素id下的所有代表视频的图片插入Edit器中
      * @param id
      */
     function insertSearch(id){

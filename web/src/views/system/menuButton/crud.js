@@ -23,11 +23,11 @@ export const crudOptions = (vm) => {
       width: 180,
       edit: {
         thin: true,
-        text: '编辑'
+        text: 'Edit'
       },
       remove: {
         thin: true,
-        text: '删除'
+        text: 'Edit'
       }
     },
     indexRow: { // 或者直接传true,不显示title，不居中

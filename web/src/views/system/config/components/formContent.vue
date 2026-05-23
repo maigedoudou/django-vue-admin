@@ -382,7 +382,7 @@ export default {
         if (valid) {
           api.saveContent(this.options.id,
             submitForm).then(res => {
-            this.$message.success('保存成功')
+            this.$message.success('save successfully')
             this.refreshView()
           })
         } else {
@@ -482,13 +482,13 @@ export default {
         this.refreshView()
       })
     },
-    // 行编辑
+    // 行Edit
     onEdit (index) {
       const that = this
       that.$set(that.formList[index], 'new_key', that.formList[index].key)
       that.$set(that.formList[index], 'edit', true)
     },
-    // 行编辑保存
+    // 行Edit保存
     onEditSave (obj) {
       obj.key = JSON.parse(JSON.stringify(obj.new_key))
       api.UpdateObj(obj).then(res => {

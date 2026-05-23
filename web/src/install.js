@@ -269,7 +269,7 @@ Vue.prototype.commonEndColumns = function (param = {}) {
   }
   return [
     {
-      title: '备注',
+      title: 'Comment',
       key: 'description',
       show: showData.description.showTable,
       search: {
@@ -279,7 +279,6 @@ Vue.prototype.commonEndColumns = function (param = {}) {
       form: {
         disabled: !showData.description.showForm,
         component: {
-          placeholder: '请输入内容',
           showWordLimit: true,
           maxlength: '200',
           props: {
