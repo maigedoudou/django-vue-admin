@@ -81,7 +81,7 @@
             </el-tag>
           </div>
         </div>
-        <el-input v-else placeholder="请选择" slot:reference clearable :disabled="disabled" :size="size"></el-input>
+        <el-input v-else placeholder="please select" slot:reference clearable :disabled="disabled" :size="size"></el-input>
       </div>
     </el-popover>
   </div>

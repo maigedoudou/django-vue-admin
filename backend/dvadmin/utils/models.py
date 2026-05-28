@@ -173,7 +173,7 @@ class CoreModel(models.Model):
     creator = models.ForeignKey(to=settings.AUTH_USER_MODEL, related_query_name='creator_query', null=True,
                                 verbose_name='创建人', help_text="创建人", on_delete=models.SET_NULL,
                                 db_constraint=False)
-    modifier = models.CharField(max_length=255, null=True, blank=True, help_text="修改人", verbose_name="修改人")
+    modifier = models.CharField(max_length=255, null=True, blank=True, help_text="modify person", verbose_name="modify person")
     dept_belong_id = models.CharField(max_length=255, help_text="数据归属部门", null=True, blank=True,
                                       verbose_name="数据归属部门")
     update_datetime = models.DateTimeField(auto_now=True, null=True, blank=True, help_text="修改时间",

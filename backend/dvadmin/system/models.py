@@ -26,9 +26,9 @@ class Users(CoreModel, AbstractUser):
     avatar = models.CharField(max_length=255, verbose_name="头像", null=True, blank=True, help_text="头像")
     name = models.CharField(max_length=40, verbose_name="姓名", help_text="姓名")
     GENDER_CHOICES = (
-        (0, "未知"),
-        (1, "男"),
-        (2, "女"),
+        (0, "unknown"),
+        (1, "male"),
+        (2, "female"),
     )
     gender = models.IntegerField(
         choices=GENDER_CHOICES, default=0, verbose_name="性别", null=True, blank=True, help_text="性别"
@@ -46,7 +46,7 @@ class Users(CoreModel, AbstractUser):
                                   help_text="关联角色")
     dept = models.ForeignKey(
         to="Dept",
-        verbose_name="所属部门",
+        verbose_name="Division",
         on_delete=models.PROTECT,
         db_constraint=False,
         null=True,

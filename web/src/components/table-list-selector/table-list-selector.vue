@@ -142,7 +142,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: '请选择'
+      default: 'please select'
     },
     dialogTitle: {
       type: String,

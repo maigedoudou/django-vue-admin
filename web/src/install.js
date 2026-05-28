@@ -294,7 +294,7 @@ Vue.prototype.commonEndColumns = function (param = {}) {
       }
     },
     {
-      title: '修改人',
+      title: 'modify person',
       show: showData.modifier_name.showTable,
       width: 100,
       key: 'modifier_name',
@@ -303,7 +303,7 @@ Vue.prototype.commonEndColumns = function (param = {}) {
       }
     },
     {
-      title: '所属部门',
+      title: 'Division',
       key: 'dept_belong_id',
       show: showData.dept_belong_id.showTable,
       width: 150,

@@ -510,7 +510,7 @@
         "remark": null,
         "children": [
             {
-                "label": "未知",
+                "label": "unknown",
                 "value": "0",
                 "parent": 18,
                 "type": 1,
@@ -522,7 +522,7 @@
                 "children": []
             },
             {
-                "label": "男",
+                "label": "male",
                 "value": "1",
                 "parent": 18,
                 "type": 1,
@@ -534,7 +534,7 @@
                 "children": []
             },
             {
-                "label": "女",
+                "label": "female",
                 "value": "2",
                 "parent": 18,
                 "type": 1,

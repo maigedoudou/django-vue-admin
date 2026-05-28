@@ -283,7 +283,7 @@ class UserViewSet(CustomModelViewSet):
         "gender": {
             "title": "用户性别",
             "choices": {
-                "data": {"未知": 2, "男": 1, "女": 0},
+                "data": {"unknown": 2, "male": 1, "female": 0},
             }
         },
         "is_active": {

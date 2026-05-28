@@ -81,7 +81,7 @@ export default {
     placeholder: {
       type: String,
       required: false,
-      default: '请选择'
+      default: 'please select'
     },
     // 过滤的placeholder
     filterPlaceholder: {
