@@ -67,6 +67,15 @@
               <el-radio-button label="ja">日本語</el-radio-button>
             </el-radio-group>
           </div>
+          <div class="lang-row">
+            <span class="temp-label">Agent Mode:</span>
+            <el-switch
+              v-model="form.agentMode"
+              active-color="#13ce66"
+              inactive-color="#c0c4cc"
+              style="margin-left: 10px"
+            />
+          </div>
         </div>
 
         <!-- 消息列表 -->
@@ -176,7 +185,8 @@ export default {
         message: '',
         model: '',
         temperature: 0.7,
-        lang: 'auto'
+        lang: 'auto',
+        agentMode: true
       }
     }
   },
@@ -212,6 +222,7 @@ export default {
         payload.temperature = this.form.temperature
       }
       if (this.form.lang && this.form.lang !== 'auto') payload.lang = this.form.lang
+      payload.agent_mode = !!this.form.agentMode
       return payload
     },
     async onSend () {

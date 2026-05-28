@@ -36,6 +36,9 @@
               </el-form-item>
             </el-col>
           </el-row>
+          <el-form-item label="Agent Mode">
+            <el-switch v-model="form.agentMode" />
+          </el-form-item>
 
           <el-button type="primary" :loading="loading" @click="onSend">Send</el-button>
           <el-button :disabled="loading" @click="onReset">Reset</el-button>
@@ -79,7 +82,8 @@ export default {
       form: {
         message: '',
         model: '',
-        temperature: 0.7
+        temperature: 0.7,
+        agentMode: true
       }
     }
   },
@@ -94,6 +98,7 @@ export default {
       if (this.form.temperature !== null && this.form.temperature !== undefined) {
         payload.temperature = this.form.temperature
       }
+      payload.agent_mode = !!this.form.agentMode
       return payload
     },
     async onSend () {
@@ -122,6 +127,7 @@ export default {
       this.form.message = ''
       this.form.model = ''
       this.form.temperature = 0.7
+      this.form.agentMode = true
       this.errorMsg = ''
       this.reply = ''
       this.usedModel = ''
