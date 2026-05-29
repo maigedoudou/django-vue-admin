@@ -5,6 +5,14 @@ import util from '@/libs/util'
 
 Vue.use(VueI18n)
 
+function normalizeLocale (locale, messages) {
+  if (typeof locale !== 'string') return 'en'
+  const lower = locale.toLowerCase()
+  if (lower.startsWith('en')) return 'en'
+  if (lower.startsWith('zh')) return messages['zh-chs'] ? 'zh-chs' : 'en'
+  return messages[locale] ? locale : 'en'
+}
+
 function loadLocaleMessages () {
   const locales = require.context('./locales', true, /[A-Za-z0-9-_,\s]+\.json$/i)
   const messages = {}
@@ -31,7 +39,7 @@ Vue.prototype.$languages = Object.keys(messages).map(langlage => ({
 }))
 
 const i18n = new VueI18n({
-  locale: 'en',
+  locale: normalizeLocale(util.cookies.get('lang'), messages),
   fallbackLocale: 'en',
   messages
 })
