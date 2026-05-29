@@ -1,4 +1,5 @@
 import { request } from '@/api/service'
+import util from '@/libs/util'
 
 export const urlPrefix = '/api/init/dictionary/'
 export const BUTTON_VALUE_TO_COLOR_MAPPING = {
@@ -13,10 +14,32 @@ export const BUTTON_VALUE_TO_COLOR_MAPPING = {
   Delete: 'danger' // 删除
 }
 
+const DICT_LABEL_EN_MAP = {
+  '未知': 'Unknown',
+  '男': 'Male',
+  '女': 'Female',
+  '启用': 'Enabled',
+  '禁用': 'Disabled',
+  '是': 'Yes',
+  '否': 'No',
+  '正常': 'Normal',
+  '停用': 'Disabled'
+}
+
+function isEnglishLocale () {
+  const locale = util.cookies.get('lang')
+  return typeof locale === 'string' && locale.toLowerCase().startsWith('en')
+}
+
+function translateDictLabel (label) {
+  if (!isEnglishLocale()) return label
+  return DICT_LABEL_EN_MAP[label] || label
+}
+
 export function getButtonSettings (objectSettings) {
   return objectSettings.map(item => {
     return {
-      label: item.label,
+      label: translateDictLabel(item.label),
       value: item.value,
       color: item.color || BUTTON_VALUE_TO_COLOR_MAPPING[item.value]
     }
