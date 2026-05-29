@@ -14,12 +14,12 @@
             v-permission="'Create'"
             type="primary"
             @click="addRow"
-            ><i class="el-icon-plus" /> {{ $i18n.locale === 'en' ? 'Create' : '新增' }}</el-button
+            ><i class="el-icon-plus" /> {{ $t('systemUser.create') }}</el-button
           >
           <importExcel
             api="api/system/dept/"
             v-permission="'Import'"
-          >{{ $i18n.locale === 'en' ? 'Import' : '导入' }}
+          >{{ $t('systemUser.import') }}
           </importExcel>
         </el-button-group>
         <crud-toolbar

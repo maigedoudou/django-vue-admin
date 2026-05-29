@@ -60,8 +60,12 @@ const menuTitleMap = {
   '重置密码': 'Reset Password'
 }
 
+function isEnglishLocale (locale) {
+  return typeof locale === 'string' && locale.toLowerCase().startsWith('en')
+}
+
 export function translateMenuTitle (title) {
-  if (i18n.locale !== 'en') return title
+  if (!isEnglishLocale(i18n.locale)) return title
   return menuTitleMap[title] || title
 }
 
@@ -86,7 +90,7 @@ function toReadableTitle (value) {
 
 export function normalizeMenuTitle (title, fallback) {
   const translated = translateMenuTitle(title)
-  if (i18n.locale !== 'en') return translated
+  if (!isEnglishLocale(i18n.locale)) return translated
   if (!hasChinese(translated)) return translated
   return toReadableTitle(fallback) || translated
 }

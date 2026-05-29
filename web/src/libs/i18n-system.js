@@ -1,4 +1,5 @@
 const COMMON_MAP_EN = {
+  '添加': 'Create',
   '新增': 'Create',
   'Edit': 'Edit',
   '删除': 'Delete',
@@ -76,6 +77,10 @@ const COMMON_MAP_EN = {
   'ID': 'ID'
 }
 
+function isEnglishLocale (locale) {
+  return typeof locale === 'string' && locale.toLowerCase().startsWith('en')
+}
+
 const TRANSLATABLE_KEYS = new Set([
   'title',
   'text',
@@ -88,7 +93,7 @@ const TRANSLATABLE_KEYS = new Set([
 
 function translateText (vm, text) {
   if (typeof text !== 'string') return text
-  if (!vm || !vm.$i18n || vm.$i18n.locale !== 'en') return text
+  if (!vm || !vm.$i18n || !isEnglishLocale(vm.$i18n.locale)) return text
   if (COMMON_MAP_EN[text]) return COMMON_MAP_EN[text]
 
   const trimmed = text.trim()
