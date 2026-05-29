@@ -72,7 +72,9 @@ export const crudOptions = (vm) => {
     },
     formOptions: {
       defaultSpan: 12,
-      editTitle: 'Edit'
+      addTitle: 'Create',
+      editTitle: 'Edit',
+      viewTitle: 'View'
     },
     columns: [
       {
